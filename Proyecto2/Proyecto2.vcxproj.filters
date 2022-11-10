@@ -24,12 +24,102 @@
     <ClCompile Include="Interfaz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Hospital.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Paciente.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Medico.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transporte.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Taxi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Ambulancia.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Profesor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Estudiante.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PInterino.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PPropiedad.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ENacional.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="EInternacional.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cita.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Hora.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Fecha.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controladora.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Interfaz.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hospital.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Paciente.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Medico.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transporte.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Taxi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Ambulancia.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Profesor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Estudiante.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PInterino.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PPropiedad.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ENacional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EInternacional.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cita.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Hora.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fecha.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

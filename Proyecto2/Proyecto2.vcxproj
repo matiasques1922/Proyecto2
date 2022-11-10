@@ -127,13 +127,43 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ambulancia.cpp" />
+    <ClCompile Include="Cita.cpp" />
     <ClCompile Include="Controladora.cpp" />
+    <ClCompile Include="EInternacional.cpp" />
+    <ClCompile Include="ENacional.cpp" />
+    <ClCompile Include="Estudiante.cpp" />
+    <ClCompile Include="Fecha.cpp" />
+    <ClCompile Include="Hora.cpp" />
+    <ClCompile Include="Hospital.cpp" />
     <ClCompile Include="Interfaz.cpp" />
+    <ClCompile Include="Medico.cpp" />
+    <ClCompile Include="Paciente.cpp" />
+    <ClCompile Include="PInterino.cpp" />
+    <ClCompile Include="PPropiedad.cpp" />
     <ClCompile Include="Principal.cpp" />
+    <ClCompile Include="Profesor.cpp" />
+    <ClCompile Include="Taxi.cpp" />
+    <ClCompile Include="Transporte.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ambulancia.h" />
+    <ClInclude Include="Cita.h" />
     <ClInclude Include="Controladora.h" />
+    <ClInclude Include="EInternacional.h" />
+    <ClInclude Include="ENacional.h" />
+    <ClInclude Include="Estudiante.h" />
+    <ClInclude Include="Fecha.h" />
+    <ClInclude Include="Hora.h" />
+    <ClInclude Include="Hospital.h" />
     <ClInclude Include="Interfaz.h" />
+    <ClInclude Include="Medico.h" />
+    <ClInclude Include="Paciente.h" />
+    <ClInclude Include="PInterino.h" />
+    <ClInclude Include="PPropiedad.h" />
+    <ClInclude Include="Profesor.h" />
+    <ClInclude Include="Taxi.h" />
+    <ClInclude Include="Transporte.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
