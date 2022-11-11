@@ -69,6 +69,12 @@
     <ClCompile Include="Fecha.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Persona.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cobro.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Controladora.h">
@@ -120,6 +126,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Fecha.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Persona.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Cobro.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

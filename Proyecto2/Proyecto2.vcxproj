@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClCompile Include="Ambulancia.cpp" />
     <ClCompile Include="Cita.cpp" />
+    <ClCompile Include="Cobro.cpp" />
     <ClCompile Include="Controladora.cpp" />
     <ClCompile Include="EInternacional.cpp" />
     <ClCompile Include="ENacional.cpp" />
@@ -139,6 +140,7 @@
     <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="Medico.cpp" />
     <ClCompile Include="Paciente.cpp" />
+    <ClCompile Include="Persona.cpp" />
     <ClCompile Include="PInterino.cpp" />
     <ClCompile Include="PPropiedad.cpp" />
     <ClCompile Include="Principal.cpp" />
@@ -149,6 +151,7 @@
   <ItemGroup>
     <ClInclude Include="Ambulancia.h" />
     <ClInclude Include="Cita.h" />
+    <ClInclude Include="Cobro.h" />
     <ClInclude Include="Controladora.h" />
     <ClInclude Include="EInternacional.h" />
     <ClInclude Include="ENacional.h" />
@@ -159,6 +162,7 @@
     <ClInclude Include="Interfaz.h" />
     <ClInclude Include="Medico.h" />
     <ClInclude Include="Paciente.h" />
+    <ClInclude Include="Persona.h" />
     <ClInclude Include="PInterino.h" />
     <ClInclude Include="PPropiedad.h" />
     <ClInclude Include="Profesor.h" />
