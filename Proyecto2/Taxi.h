@@ -1,22 +1,27 @@
 #pragma once
 #include "Transporte.h"
+#include "Cobro.h"
 class Taxi: public Transporte
 {
 private:
 	double distancia;
-	char idaVuelta;
+	bool idaVuelta;
 	int numPacientes;
-	/*Cobro* cobroPtr;*/
+	Cobro* cobroPtr;
 public:
-	Taxi(string, string, double, char, int); //cobro
+	Taxi(string, string, double, bool, int, Cobro*); //cobro
 	virtual ~Taxi();
 
 	double getDistancia();
-	char getIdaVuelta();
+	bool getIdaVuelta();
 	int getNumPacientes();
+	Cobro* getCobro();
 	void setDistancia(double);
 	void setIdaVuelta(char);
 	void setNumPacientes(int);
+	void setCobro(Cobro*);
+
+	double cobro();
 
 	string toString();
 

@@ -14,8 +14,8 @@ string Ambulancia::toString(){
 	s << "---------AMBULANCIA-----------" << endl
 		<< "Placa: " << placa << endl
 		<< "Codigo: " << codigo << endl
-		<< "Marca: " << marca << endl;
-	if (ocupado == true)
+		<< "Marca: " << marca << endl; 
+	if (ocupado == true) 
 		s << "Estado: Ocupada" << endl;
 	else
 		s << "Estado: Disponible" << endl;

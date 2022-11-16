@@ -4,13 +4,13 @@ class EInternacional: public Estudiante
 {
 private:
 	string nacionalidad;
-	string numPasaporte;
+	//string numPasaporte;
 	string condicion;
 public:
-	EInternacional(string, string, string, string, string, string, string, string, string, string);
+	EInternacional(string, string, string, string, string, string, string, string, string);
 	virtual ~EInternacional();
 	string getNacionalidad();
-	string getNumPasaporte();
+	/*string getNumPasaporte();*/
 	string getCondicion();
 
 	string toString();

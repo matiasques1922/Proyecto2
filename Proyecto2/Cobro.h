@@ -3,7 +3,7 @@
 class Cobro
 {
 public:
-	static double realizaCobro(double, int);
-	static double realizaCobro2(double, int);
+	double realizaCobro(double, int);
+	double realizaCobro2(double, int);
 };
 
