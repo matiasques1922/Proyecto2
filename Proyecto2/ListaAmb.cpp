@@ -11,6 +11,7 @@ void ListaAmb::ingresar(Ambulancia* ptr){
 string ListaAmb::toString() {
 	stringstream s;
 	NodoAmb* pExt = ppio;
+	s << "------------------LISTA AMBULANCIAS------------------" << endl;
 	while (pExt != NULL) {
 		s << pExt->getAmbulancia()->toString() << endl;
 		pExt = pExt->getSig();

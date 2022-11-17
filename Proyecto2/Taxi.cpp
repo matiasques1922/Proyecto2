@@ -23,11 +23,7 @@ string Taxi::toString() {
 	stringstream s;
 	s << "-----------TAXI------------" << endl
 		<< "Placa: " << placa << endl
-		<< "Marca: " << marca << endl;
-	if (idaVuelta = false)
-		s << "Costo: " << cobroPtr->realizaCobro(distancia, numPacientes) << endl;
-	else
-		s << "Costo: " << cobroPtr->realizaCobro2(distancia, numPacientes) << endl;
-	s<< "Numero de Pacientes: " << numPacientes << endl;
+		<< "Marca: " << marca << endl
+	<< "Numero de Pacientes: " << numPacientes << endl;
 	return s.str();
 }

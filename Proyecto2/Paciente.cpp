@@ -5,7 +5,7 @@ Paciente:: ~Paciente(){
 	if (transPtr != NULL)
 		delete transPtr;
 }
-
+string Paciente::getUniversidad() { return universidad; }
 Transporte* Paciente::getTransporte() { return transPtr; }
 string Paciente::toString(){
 	stringstream s;

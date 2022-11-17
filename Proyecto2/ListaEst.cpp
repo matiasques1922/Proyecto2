@@ -11,6 +11,7 @@ void ListaEst::ingresar(Estudiante* ptr) {
 string ListaEst::toString() {
 	stringstream s;
 	NodoEst* pExt = ppio;
+	s << "------------------LISTA ESTUDIANTES------------------" << endl;
 	while (pExt != NULL) {
 		s << pExt->getEstudiante()->toString() << endl;
 		pExt = pExt->getSig();

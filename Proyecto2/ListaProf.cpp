@@ -11,6 +11,7 @@ void ListaProf::ingresar(Profesor* ptr) {
 string ListaProf::toString() {
 	stringstream s;
 	NodoProf* pExt = ppio;
+	s << "------------------LISTA PROFESORES------------------" << endl;
 	while (pExt != NULL) {
 		s << pExt->getProfesor()->toString() << endl;
 		pExt = pExt->getSig();

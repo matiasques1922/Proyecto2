@@ -10,5 +10,8 @@ public:
     Persona(string, string, string, string);
     virtual ~Persona();
     string getCedula();
+    string getApellido();
+    string getNombre();
+    string getNumeroT();
     virtual string toString() = 0;
 };

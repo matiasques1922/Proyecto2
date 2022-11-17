@@ -11,6 +11,7 @@ void ListaTax::ingresar(Taxi* ptr) {
 string ListaTax::toString() {
 	stringstream s;
 	NodoTax* pExt = ppio;
+	s << "------------------LISTA TAXIS------------------" << endl;
 	while (pExt != NULL) {
 		s << pExt->getTaxi()->toString() << endl;
 		pExt = pExt->getSig();

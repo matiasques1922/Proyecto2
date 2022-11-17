@@ -8,7 +8,7 @@ protected:
 public:
 	Paciente(string,string,string,string,string, Transporte*);
 	virtual ~Paciente();
-
+	string getUniversidad();
 	Transporte* getTransporte();
 	string toString();
 

@@ -11,7 +11,7 @@ string EInternacional::toString(){
 	s << Estudiante::toString() << endl
 		<< "Tipo: Estudiante Internacional" << endl
 		<< "Nacionalidad: " << nacionalidad << endl
-		/*<< "Numero de Pasaporte: " << numPasaporte << endl*/
+		<< "Numero de Pasaporte: " << cedula << endl
 		<< "Condicion: " << condicion << endl;
 	return s.str();
 }

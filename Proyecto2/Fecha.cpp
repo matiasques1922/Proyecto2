@@ -6,6 +6,10 @@ Fecha:: ~Fecha() {
 
 }
 
+int Fecha::getDia() { return dia; }
+int Fecha::getMes() { return mes; }
+int Fecha::getAnio() { return anio; }
+
 string Fecha::toString() {
 	stringstream s;
 	s << "Fecha: " << endl

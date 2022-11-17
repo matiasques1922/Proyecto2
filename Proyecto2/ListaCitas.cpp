@@ -11,6 +11,7 @@ void ListaCitas::ingresar(Cita* ptr) {
 string ListaCitas::toString() {
 	stringstream s;
 	NodoCit* pExt = ppio;
+	s << "------------------LISTA CITAS------------------" << endl;
 	while (pExt != NULL) {
 		s << pExt->getCita()->toString() << endl;
 		pExt = pExt->getSig();

@@ -11,5 +11,8 @@ private:
 public:
 	Fecha(int, int, int);
 	virtual ~Fecha();
+	int getDia();
+	int getMes();
+	int getAnio();
 	string toString();
 };
