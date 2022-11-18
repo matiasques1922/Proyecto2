@@ -8,6 +8,8 @@ double Ambulancia::getKM() { return kmRecorridos; }
 
 void Ambulancia::setOcupado(bool ocu) { ocupado = ocu; }
 void Ambulancia::setKM(double km) { kmRecorridos = km; }
+void Ambulancia::setCodigo(string cod) { codigo = cod; }
+
 
 string Ambulancia::toString(){
 	stringstream s;

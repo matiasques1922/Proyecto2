@@ -28,12 +28,44 @@ public:
 	ListaMed* getMed();
 	ListaCitas* getCitas();
 
+	Ambulancia* buscaAmbulancia();
+	void buscaTaxi();
+	void buscaProfP();
+	void buscaProfI();
+	void buscaEstN();
+	void buscaEstIN();
+	void buscaMedico();
+	void buscaCita();
+	
+
 	void ingresarAmb();
 	void ingresarTax();
-	void ingresarProf();
-	void ingresarEst();
+	void ingresarProfP();
+	void ingresarProfI();
+	void ingresarEstudianteN();
+	void ingresarEstudianteIN();
 	void ingresarMed();
 	void crearCita();
+
+	void editarAmb();
+	void editarTax();
+	void editarProfP();
+	void editarProfI();
+	void editarEstudianteN();
+	void editarEstudianteIN();
+	void editarMed();
+	void editarCita();
+
+	void eliminarAmb();
+	void eliminarTax();
+	void eliminarProfP();
+	void eliminarProfI();
+	void eliminarEstudianteN();
+	void eliminarEstudianteIN();
+	void eliminarMed();
+	void eliminarCita();
+
+	
 
 	string toString();
 

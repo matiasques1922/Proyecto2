@@ -11,7 +11,8 @@ void ListaMed::ingresar(Medico* ptr) {
 string ListaMed::toString() {
 	stringstream s;
 	NodoMed* pExt = ppio;
-	s << "------------------LISTA MEDICOS------------------" << endl;
+	
+	s << "-----------------LISTA MEDICOS-----------------" << endl;
 	while (pExt != NULL) {
 		s << pExt->getMedico()->toString() << endl;
 		pExt = pExt->getSig();

@@ -1,6 +1,8 @@
 #pragma once
 #include "Persona.h"
 #include "Transporte.h"
+#include "Taxi.h"
+#include "Ambulancia.h"
 class Paciente: public Persona{
 protected:
 	string universidad;
@@ -10,6 +12,9 @@ public:
 	virtual ~Paciente();
 	string getUniversidad();
 	Transporte* getTransporte();
+	void setTransporte(Transporte*);
+	void setUniversidad(string);
+
 	string toString();
 
 };

@@ -1,18 +1,23 @@
 #pragma once
-#include "Profesor.h"
+#include "PPropiedad.h"
+#include "PInterino.h"
 class NodoProf
 {
 private:
-	Profesor* ptrP;
+	PPropiedad* ptrP;
+	PInterino* ptrI;
 	NodoProf* sig;
 
 public:
-	NodoProf(Profesor*, NodoProf*);
+	NodoProf(PPropiedad*, NodoProf*);
+	NodoProf(PInterino*, NodoProf*);
 	virtual ~NodoProf();
-	void setProfesor(Profesor*);
+	void setProfesorP(PPropiedad*);
+	void setProfesorI(PInterino*);
 	void setSig(NodoProf*);
 
-	Profesor* getProfesor();
+	PPropiedad* getProfesorP();
+	PInterino* getProfesorI();
 	NodoProf* getSig();
 };
 

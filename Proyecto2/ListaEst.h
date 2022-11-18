@@ -8,7 +8,8 @@ public:
 	ListaEst();
 	virtual ~ListaEst();
 
-	void ingresar(Estudiante*);
+	void ingresarIN(EInternacional*);
+	void ingresarN(ENacional*);
 	string toString();
 };
 

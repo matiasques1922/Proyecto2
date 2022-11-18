@@ -8,6 +8,9 @@ protected:
 public:
 	Transporte(string, string);
 	virtual ~Transporte();
+
+	void setPlaca(string);
+	void setMarca(string);
 	string getPlaca();
 	string getMarca();
 

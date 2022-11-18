@@ -7,10 +7,17 @@ Paciente:: ~Paciente(){
 }
 string Paciente::getUniversidad() { return universidad; }
 Transporte* Paciente::getTransporte() { return transPtr; }
+void Paciente::setTransporte(Transporte* trans) { transPtr = trans; }
+void Paciente::setUniversidad(string uni) { universidad = uni; }
+
 string Paciente::toString(){
 	stringstream s;
 	s << "--------Paciente---------" << endl
 		<< "Universidad: " << universidad << endl;
+	if (transPtr == NULL)
+		s << "Transporte: Propio" << endl;
+	else
+		s << "Transporte brindado por el hospital placa: " << transPtr->getPlaca() << endl;
 	return s.str();
 }
 

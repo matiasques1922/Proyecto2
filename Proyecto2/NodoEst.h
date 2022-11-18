@@ -1,18 +1,23 @@
 #pragma once
-#include "Estudiante.h"
+#include "ENacional.h"
+#include"EInternacional.h"
 class NodoEst
 {
 private:
-	Estudiante* ptrE;
+	ENacional* ptrN;
+	EInternacional* ptrIN;
 	NodoEst* sig;
 
 public:
-	NodoEst(Estudiante*, NodoEst*);
+	NodoEst(ENacional*, NodoEst*);
+	NodoEst(EInternacional*, NodoEst*);
 	virtual ~NodoEst();
-	void setEstudiante(Estudiante*);
+	void setEstudianteN(ENacional*);
+	void setEstudianteIN(EInternacional*);
 	void setSig(NodoEst*);
 
-	Estudiante* getEstudiante();
+	ENacional* getEstudianteN();
+	EInternacional* getEstudianteIN();
 	NodoEst* getSig();
 };
 

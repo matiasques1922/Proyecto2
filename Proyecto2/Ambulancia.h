@@ -14,6 +14,7 @@ public:
 	bool getOcupado();
 	double getKM();
 
+	void setCodigo(string);
 	void setOcupado(bool);
 	void setKM(double);
 

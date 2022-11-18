@@ -12,7 +12,7 @@ string EInternacional::toString(){
 		<< "Tipo: Estudiante Internacional" << endl
 		<< "Nacionalidad: " << nacionalidad << endl
 		<< "Numero de Pasaporte: " << cedula << endl;
-	if (condicion = 1)
+	if (condicion == 1)
 		s << "Condicion: Exiliado" << endl;
 	else
 		s << "Condicion: Refugiado" << endl;

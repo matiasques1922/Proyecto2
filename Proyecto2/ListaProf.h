@@ -8,7 +8,9 @@ public:
 	ListaProf();
 	virtual ~ListaProf();
 
-	void ingresar(Profesor*);
+	void ingresarP(PPropiedad*);
+	void ingresarI(PInterino*);
+
 	string toString();
 };
 

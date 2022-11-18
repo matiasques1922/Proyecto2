@@ -2,9 +2,6 @@
 
 class PPropiedad: public Profesor{
 private:
-	string titulo;
-	int anioslab;
-	string codigo;
 
 public:
 	PPropiedad(string, string, string, string, string, Transporte*, string, int, string);

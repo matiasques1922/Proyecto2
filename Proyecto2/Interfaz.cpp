@@ -2,7 +2,7 @@
 
 int Interfaz::menuPrincipal() {
     int op;
-    cout << "--------AEROLINEA-------" << endl;
+    cout << "---------HOSPITAL-------" << endl;
     cout << "-----------MENU---------" << endl;
     cout << "     1- Citas  " << endl;
     cout << "     2- Mantenimiento   " << endl;
@@ -33,13 +33,42 @@ int Interfaz::subMenuMantenimiento() {
     int op;
     cout << "           MANTENIMIENTO      " << endl;
     cout << "     --------SUB-MENU--------" << endl;
-    cout << "          1- Ingresar paciente           " << endl;
+    cout << "          1- Pacientes           " << endl;
     cout << "          2- Ingresar medico        " << endl;
     cout << "          3- Ingresar ambulancia          " << endl;
-    cout << "          4- Ingresar taxi           " << endl;
-    cout << "          5- Salir           " << endl;
+    cout << "          4- Ingresar taxi           " << endl << endl;
+    cout << "          5- Editar medico        " << endl;
+    cout << "          6- Editar ambulancia          " << endl;
+    cout << "          7- Editar taxi           " << endl << endl;
+    cout << "          8- Eliminar medico        " << endl;
+    cout << "          9- Eliminar ambulancia          " << endl;
+    cout << "          10- Eliminar taxi           " << endl << endl;
+    cout << "          11- Salir           " << endl;
     cout << "     ------------------------" << endl;
     cout << "          Digite la opcion: ";
+    cin >> op;
+    return op;
+}
+
+int Interfaz::subsubMenuPacientes() {
+    int op;
+    cout << "--------PACIENTES-------" << endl;
+    cout << "------SUB-SUB-MENU------" << endl;
+    cout << "1- Ingresar profesor en propiedad" << endl;
+    cout << "2- Ingresar profesor interino   " << endl;
+    cout << "3- Ingresar estudiante nacional    " << endl;
+    cout << "4- Ingresar estudiante internacional    " << endl << endl;
+    cout << "5- Editar profesor en propiedad" << endl;
+    cout << "6- Editar profesor interino   " << endl;
+    cout << "7- Editar estudiante nacional    " << endl;
+    cout << "8- Editar estudiante internacional    " << endl << endl;
+    cout << "9- Eliminar profesor en propiedad" << endl;
+    cout << "10- Eliminar profesor interino   " << endl;
+    cout << "11- Eliminar estudiante nacional    " << endl;
+    cout << "12- Eliminar estudiante internacional    " << endl << endl;
+    cout << "13- Salir.          " << endl;
+    cout << "------------------------" << endl;
+    cout << "Digite la opcion: ";
     cin >> op;
     return op;
 }
@@ -63,7 +92,7 @@ int Interfaz::subMenuBusquedas() {
 int Interfaz::subsubMenuBusquedasReportes() {
     int op;
     cout << "             ---------REPORTES------" << endl;
-    cout << "             -------Sub-Sub-Menu----" << endl;
+    cout << "             -------SUB-SUB-MENU----" << endl;
     cout << "               1- Reporte de datos de la empresa  " << endl;
     cout << "               2- Reporte monto total a pagar por taxis  " << endl;
     cout << "               3- Reporte persona con mas citas en el hospital   " << endl;

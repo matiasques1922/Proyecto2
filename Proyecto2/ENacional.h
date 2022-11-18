@@ -3,11 +3,11 @@
 class ENacional: public Estudiante
 {
 private:
-	string estado;
+	int estado;
 public:
-	ENacional(string, string, string, string, string, Transporte*, string, string, string);
+	ENacional(string, string, string, string, string, Transporte*, string, string, int);
 	virtual ~ENacional();
-	string getEstado();
+	int getEstado();
 	string toString();
 };
 

@@ -1,3 +1,4 @@
+#pragma once
 #include<sstream>
 #include<iostream>
 using namespace std;
@@ -17,3 +18,4 @@ public:
     string getNumeroT();
     virtual string toString() = 0;
 };
+

@@ -9,6 +9,7 @@ public:
 	virtual ~ListaAmb();
 
 	void ingresar(Ambulancia*);
+	Ambulancia* buscarPlaca(string);
 	string toString();
 };
 

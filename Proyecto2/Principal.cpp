@@ -3,7 +3,11 @@
 
 int main() {
 	int op, op1, op2, op3, op4, op5;
-    Hospital* HO;
+    string nombreH;
+    cout << "Ingrese el nombre del hospital: ";
+    cin >> nombreH;
+    system("cls");
+    Hospital* HO = new Hospital(nombreH);
 	do {
 		op = Interfaz::menuPrincipal();
 		system("cls");
@@ -26,7 +30,7 @@ int main() {
                     //Cancelar citas
                 }break;
                 case 4: {
-                    //Historial de citas
+                    //Historial de citas(especifico)
                 }break;
                 case 5: {
 
@@ -48,8 +52,60 @@ int main() {
                 switch (op2) {
                 case 1: {
                     //Ingresar paciente
-               /*     HO->ingresaPaciente();*/
+                    do {
+                        op5 = Interfaz::subsubMenuPacientes();
+                        system("cls");
+                        switch (op5) {
+                        case 1: {
+                            //propiedad
+                            HO->ingresarProfP();
+                        }break;
+                        case 2: {
+                            //interino
+                            HO->ingresarProfI();
+                        }break;
+                        case 3: {
+                            //nacional
+                            HO->ingresarEstudianteN();
+                        }break;
+                        case 4: {
+                            //internacional
+                            HO->ingresarEstudianteIN();
+                        }break;
+                        case 5: {
 
+                        }break;
+                        case 6: {
+
+                        }break;
+                        case 7: {
+
+                        }break;
+                        case 8: {
+
+                        }break;
+                        case 9: {
+
+                        }break;
+                        case 10: {
+
+                        }break;
+                        case 11: {
+
+                        }break;
+                        case 12: {
+
+                        }break;
+                        case 13: {
+
+                        }break;
+                        default: {
+                            cout << "ERROR: Esa opcion no existe." << endl;
+                            system("pause");
+                        }
+                        };
+                        system("cls");
+                    } while (op5 != 13);
                 }break;
                 case 2: {
                     //Ingresar medico
@@ -66,13 +122,31 @@ int main() {
                 case 5: {
 
                 }break;
+                case 6: {
+                    HO->editarAmb();
+                }break;
+                case 7: {
+
+                }break;
+                case 8: {
+
+                }break;
+                case 9: {
+
+                }break;
+                case 10: {
+
+                }break;
+                case 11: {
+
+                }break;
                 default: {
                     cout << "ERROR: Esa opcion no existe." << endl;
                     system("pause");
                 }
                 };
                 system("cls");
-            } while (op2 != 5);
+            } while (op2 != 11);
         }break;
 
         case 3: {
@@ -101,7 +175,8 @@ int main() {
                         switch (op4) {
                         case 1: {
                             //datos empresa
-
+                            cout << HO->toString() << endl;
+                            system("pause");
                         }break;
                         case 2: {
                             //total pago taxis
@@ -109,6 +184,7 @@ int main() {
                         }break;
                         case 3: {
                             //perosna con mas citas en el hospi
+
                         }break;
                         case 4: {
                             //fecha con mayor numero de asistencias de pacientes
@@ -152,11 +228,13 @@ int main() {
         case 4: {
         cout << "--------------SALIENDO---------------" << endl;
         cout << "Gracias por utilizar nuestro programa" << endl;
+        cout << "-------------------------------------" << endl;
+        system("pause");
         }break;
         default: cout << "ERROR: Esa opcion no existe." << endl;
         };
         system("cls");
-    } while (op1 != 4);
+    } while (op != 4);
 
 
 	system("pause");
