@@ -1,7 +1,7 @@
 #pragma once
 #include "Persona.h"
-class Medico: public Persona
-{
+class Persona;
+class Medico: public Persona{
 private:
 	string especialidad;
 public:

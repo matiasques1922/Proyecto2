@@ -1,6 +1,6 @@
 #include "ENacional.h"
 
-ENacional::ENacional(string ced, string nom, string ape, string  num, string uni, string cod, string ult, string est):Estudiante(ced, nom, ape, num, uni, cod, ult), estado(est) {}
+ENacional::ENacional(string ced, string nom, string ape, string  num, string uni, Transporte* trans, string cod, string ult, string est):Estudiante(ced, nom, ape, num, uni, trans, cod, ult), estado(est) {}
 ENacional:: ~ENacional(){}
 string ENacional::getEstado() { return estado; }
 string ENacional::toString(){

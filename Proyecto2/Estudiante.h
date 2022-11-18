@@ -7,7 +7,7 @@ protected:
 	string ultimoNivel;
 
 public:
-	Estudiante(string, string, string, string, string, string, string);
+	Estudiante(string, string, string, string, string, Transporte*, string, string);
 	virtual ~Estudiante();
 	string toString();
 };

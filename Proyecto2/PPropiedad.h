@@ -7,7 +7,7 @@ private:
 	string codigo;
 
 public:
-	PPropiedad(string, string, string, string, string, string, int, string);
+	PPropiedad(string, string, string, string, string, Transporte*, string, int, string);
 	virtual ~PPropiedad();
 	string getTitulo();
 	int getAnios();

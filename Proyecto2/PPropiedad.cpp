@@ -1,6 +1,6 @@
 #include "PPropiedad.h"
 
-PPropiedad::PPropiedad(string ced, string nom, string ape, string num, string uni, string tit, int an, string cod): Profesor(ced, nom, ape, num, uni), titulo(tit), anioslab(an), codigo(cod) {}
+PPropiedad::PPropiedad(string ced, string nom, string ape, string num, string uni, Transporte* trans, string tit, int an, string cod): Profesor(ced, nom, ape, num, uni, trans), titulo(tit), anioslab(an), codigo(cod) {}
 PPropiedad:: ~PPropiedad(){}
 string PPropiedad::getTitulo() { return titulo; }
 int PPropiedad::getAnios() { return anioslab; }

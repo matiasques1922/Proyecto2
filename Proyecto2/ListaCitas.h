@@ -5,8 +5,8 @@ class ListaCitas
 private:
 	NodoCit* ppio;
 public:
-	ListaCit();
-	virtual ~ListaCit();
+	ListaCitas();
+	virtual ~ListaCitas();
 
 	void ingresar(Cita*);
 	string toString();

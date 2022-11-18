@@ -4,7 +4,7 @@ class Profesor: public Paciente {
 private:
 
 public:
-	Profesor(string, string, string, string, string);
+	Profesor(string, string, string, string, string, Transporte*);
 	virtual ~Profesor();
 	string toString();
 

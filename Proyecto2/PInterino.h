@@ -6,7 +6,7 @@ private:
 	int anioslab;
 	double calificacion;
 public:
-	PInterino(string, string, string, string, string, string, int, double);
+	PInterino(string, string, string, string, string, Transporte*, string, int, double);
 	virtual ~PInterino();
 	string getTitulo();
 	int getAnios();

@@ -1,6 +1,6 @@
 #include "Estudiante.h"
 
-Estudiante::Estudiante(string ced, string nom, string ape, string  num, string uni,string cod, string ult):Paciente(ced, nom, ape, num, uni), codigoCa(cod), ultimoNivel(ult) {}
+Estudiante::Estudiante(string ced, string nom, string ape, string  num, string uni, Transporte* trans, string cod, string ult):Paciente(ced, nom, ape, num, uni, trans), codigoCa(cod), ultimoNivel(ult) {}
 Estudiante:: ~Estudiante(){}
 string Estudiante::toString(){
 	stringstream s;
