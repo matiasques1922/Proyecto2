@@ -8,6 +8,11 @@ protected:
 public:
 	Profesor(string, string, string, string, string, Transporte*, string, int, string);
 	virtual ~Profesor();
+	void setTitulo(string);
+	void setAniosLab(int);
+	void setCodigo(string);
+
+
 	string toString();
 
 };

@@ -21,7 +21,7 @@ public:
 	void setNumPacientes(int);
 	void setCobro(Cobro*);
 
-	double cobro();
+	double total();
 
 	string toString();
 

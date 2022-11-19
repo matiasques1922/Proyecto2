@@ -12,6 +12,7 @@ public:
 	string getNacionalidad();
 	/*string getNumPasaporte();*/
 	int getCondicion();
+	void setCondicion(int);
 
 	string toString();
 

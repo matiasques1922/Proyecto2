@@ -20,6 +20,8 @@ public:
 	void clonaMedico(Medico*);
 	void clonaFecha(Fecha*);
 	void clonaHora(Hora*);
+	string getCodigo();
+	Paciente* getPaciente();
 
 	string toString();
 };

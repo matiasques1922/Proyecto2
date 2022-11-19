@@ -2,12 +2,50 @@
 
 ListaTax::ListaTax() {
 	ppio = NULL;
+	cont = 0;
 }
 ListaTax:: ~ListaTax() {}
 
 void ListaTax::ingresar(Taxi* ptr) {
 	ppio = new NodoTax(ptr, ppio);
+	cont++;
 }
+
+Taxi* ListaTax::buscarPlaca(string pla) {
+	NodoTax* pExt = ppio;
+	while (pExt != NULL) {
+		if (pExt->getTaxi()->getPlaca() == pla)
+			return pExt->getTaxi();
+		pExt = pExt->getSig();
+	}
+	return NULL;
+}
+
+bool ListaTax::eliminarTax(string ced) {
+	NodoTax* pExt = ppio;
+	if (ppio == NULL)
+		return false;
+	if (cont == 1) {
+		ppio = NULL;
+		cont--;
+		return true;
+	}
+
+	while (pExt != NULL) {
+		if (pExt->getSig() != NULL) {
+			if (pExt->getSig()->getTaxi()->getPlaca() == ced) {
+				NodoTax* pExt1 = pExt->getSig();
+				pExt->setSig(pExt1->getSig());
+				delete pExt1;
+				cont--;
+				return true;
+			}
+			pExt = pExt->getSig();
+		}
+	}
+	return false;
+}
+
 string ListaTax::toString() {
 	stringstream s;
 	NodoTax* pExt = ppio;

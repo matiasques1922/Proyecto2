@@ -15,7 +15,7 @@ string Paciente::toString(){
 	s << "--------Paciente---------" << endl
 		<< "Universidad: " << universidad << endl;
 	if (transPtr == NULL)
-		s << "Transporte: Propio" << endl;
+		s << "Transporte: Propio o aun no asignado" << endl;
 	else
 		s << "Transporte brindado por el hospital placa: " << transPtr->getPlaca() << endl;
 	return s.str();

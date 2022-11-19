@@ -5,7 +5,7 @@ EInternacional:: ~EInternacional(){}
 string EInternacional::getNacionalidad() { return nacionalidad; }
 //string EInternacional::getNumPasaporte() { return numPasaporte; }
 int EInternacional::getCondicion() { return condicion; }
-
+void EInternacional::setCondicion(int cond) { condicion = cond; }
 string EInternacional::toString(){
 	stringstream s;
 	s << Estudiante::toString() << endl

@@ -13,24 +13,22 @@ int main() {
 		system("cls");
 		switch (op) {
         case 1: {
-                //citas
             do {
                 op1 = Interfaz::subMenuCitas();
                 system("cls");
                 switch (op1) {
                 case 1: {
-                    //Incluir citas
                     HO->crearCita();
                 }break;
                 case 2: {
-                    //Buscar citas
-
+                    cout << HO->todasCitas() << endl;
+                    system("pause");
                 }break;
                 case 3: {
-                    //Cancelar citas
+                    HO->eliminarCita();
                 }break;
                 case 4: {
-                    //Historial de citas(especifico)
+                    HO->historialCitas();
                 }break;
                 case 5: {
 
@@ -45,56 +43,50 @@ int main() {
         }break;
 
         case 2: {
-               //mantenimiento
             do {
                 op2 = Interfaz::subMenuMantenimiento();
                 system("cls");
                 switch (op2) {
                 case 1: {
-                    //Ingresar paciente
                     do {
                         op5 = Interfaz::subsubMenuPacientes();
                         system("cls");
                         switch (op5) {
                         case 1: {
-                            //propiedad
                             HO->ingresarProfP();
                         }break;
                         case 2: {
-                            //interino
                             HO->ingresarProfI();
                         }break;
                         case 3: {
-                            //nacional
                             HO->ingresarEstudianteN();
                         }break;
                         case 4: {
-                            //internacional
                             HO->ingresarEstudianteIN();
                         }break;
                         case 5: {
-
+                            HO->editarProfP();
                         }break;
                         case 6: {
-
+                            HO->editarProfI();
                         }break;
                         case 7: {
-
+                            HO->editarEstudianteN();
                         }break;
                         case 8: {
-
+                            HO->editarEstudianteIN();
                         }break;
                         case 9: {
-
+                            HO->eliminarProfP();
                         }break;
                         case 10: {
-
+                            HO->eliminarProfI();
                         }break;
                         case 11: {
-
+                            HO->eliminarEstudianteN();
                         }break;
                         case 12: {
-
+                            HO->eliminarEstudianteIN();
                         }break;
                         case 13: {
 
@@ -108,34 +100,31 @@ int main() {
                     } while (op5 != 13);
                 }break;
                 case 2: {
-                    //Ingresar medico
                     HO->ingresarMed();
                 }break;
                 case 3: {
-                    //ingresar ambulancia
                     HO->ingresarAmb();
                 }break;
                 case 4: {
-                    //ingreasr taxi
                     HO->ingresarTax();
                 }break;
                 case 5: {
-
+                    HO->editarMed();
                 }break;
                 case 6: {
                     HO->editarAmb();
                 }break;
                 case 7: {
-
+                    HO->editarTax();
                 }break;
                 case 8: {
-
+                    HO->eliminarMed();
                 }break;
                 case 9: {
-
+                    HO->eliminarAmb();
                 }break;
                 case 10: {
-
+                    HO->eliminarTax();
                 }break;
                 case 11: {
 

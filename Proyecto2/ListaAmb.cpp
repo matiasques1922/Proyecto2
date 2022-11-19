@@ -2,11 +2,13 @@
 
 ListaAmb::ListaAmb(){
 	ppio = NULL;
+	cont = 0;
 }
 ListaAmb:: ~ListaAmb(){}
 
 void ListaAmb::ingresar(Ambulancia* ptr){
 	ppio = new NodoAmb(ptr, ppio);
+	cont++;
 }
 
 Ambulancia* ListaAmb::buscarPlaca(string pla) {
@@ -17,6 +19,31 @@ Ambulancia* ListaAmb::buscarPlaca(string pla) {
 		pExt = pExt->getSig();
 	}
 	return NULL;
+}
+
+bool ListaAmb::eliminarAmb(string pla) {
+	NodoAmb* pExt = ppio;
+	if (ppio == NULL)
+		return false;
+	if (cont == 1) {
+		ppio = NULL;
+		cont--;
+		return true;
+	}
+	
+	while (pExt != NULL) {
+		if(pExt->getSig() != NULL) {
+			if (pExt->getSig()->getAmbulancia()->getPlaca() == pla) {
+				NodoAmb* pExt1 = pExt->getSig();
+				pExt->setSig(pExt1->getSig());
+				delete pExt1;
+				cont--;
+				return true;
+			}
+			pExt = pExt->getSig();
+		}
+	}
+	return false;
 }
 
 string ListaAmb::toString() {

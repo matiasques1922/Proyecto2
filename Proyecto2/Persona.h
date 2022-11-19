@@ -16,6 +16,10 @@ public:
     string getApellido();
     string getNombre();
     string getNumeroT();
+    void setCedula(string);
+    void setApellido(string);
+    void setNombre(string);
+    void setNumeroT(string);
     virtual string toString() = 0;
 };
 

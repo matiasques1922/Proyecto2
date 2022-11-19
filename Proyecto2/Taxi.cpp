@@ -12,7 +12,7 @@ void Taxi::setDistancia(double dis) { distancia = dis; }
 void Taxi::setIdaVuelta(char id) { idaVuelta = id; }
 void Taxi::setNumPacientes(int num) { numPacientes = num; }
 
-double Taxi::cobro() {
+double Taxi::total() {
 	if (idaVuelta = false)
 		return cobroPtr->realizaCobro(distancia, numPacientes);
 	else
@@ -24,6 +24,7 @@ string Taxi::toString() {
 	s << "-----------TAXI------------" << endl
 		<< "Placa: " << placa << endl
 		<< "Marca: " << marca << endl
-	<< "Numero de Pacientes: " << numPacientes << endl;
+		<< "Numero de Pacientes: " << numPacientes << endl
+		<< "Total generado: " << total() << " colones" << endl;
 	return s.str();
 }

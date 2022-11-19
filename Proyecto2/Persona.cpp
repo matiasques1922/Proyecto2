@@ -6,3 +6,7 @@ string Persona::getCedula() { return cedula; }
 string Persona::getNombre() { return nombre; }
 string Persona::getApellido() { return apellido; }
 string Persona::getNumeroT() { return numeroT; }
+void Persona::setCedula(string ced) { cedula = ced; }
+void Persona::setApellido(string ape) { apellido = ape; }
+void Persona::setNombre(string nom) { nombre = nom; }
+void Persona::setNumeroT(string num) { numeroT = num; }

@@ -5,7 +5,9 @@ Ambulancia:: ~Ambulancia(){}
 string Ambulancia::getCodigo() { return codigo; }
 bool Ambulancia::getOcupado() { return ocupado; }
 double Ambulancia::getKM() { return kmRecorridos; }
+bool Ambulancia::getIdaVuelta() { return idaVuelta; }
 
+void Ambulancia::setIdaVuelta(bool idaV) { idaVuelta = idaV; }
 void Ambulancia::setOcupado(bool ocu) { ocupado = ocu; }
 void Ambulancia::setKM(double km) { kmRecorridos = km; }
 void Ambulancia::setCodigo(string cod) { codigo = cod; }

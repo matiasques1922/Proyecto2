@@ -54,11 +54,19 @@ void Cita::clonaHora(Hora* ho){
 	hor = new Hora(hora, min);
 }
 
+Paciente* Cita::getPaciente() { return pacPtr; }
+string Cita::getCodigo() { return codigoC; }
+
 string Cita::toString() {
 	stringstream s;
 	s << "----------CITA-----------" << endl;
 	s << "CODIGO DE CITA: " << codigoC << endl;
-	if (pacPtr != NULL) { s << pacPtr->toString() << endl; }
+	if (pacPtr != NULL) { 
+		s << pacPtr->toString()
+			<< "Cedula: " << pacPtr->getCedula() << endl
+			<< "Nombre: " << pacPtr->getNombre() << endl
+			<< "Apellido: " << pacPtr->getApellido() << endl;
+	}
 	if (medPtr != NULL) { s << medPtr->toString() << endl; }
 	if (fec != NULL) { s << fec->toString() << endl; }
 	if (hor != NULL) { s << hor->toString() << endl; }

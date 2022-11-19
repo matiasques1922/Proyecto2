@@ -29,13 +29,13 @@ public:
 	ListaCitas* getCitas();
 
 	Ambulancia* buscaAmbulancia();
-	void buscaTaxi();
-	void buscaProfP();
-	void buscaProfI();
-	void buscaEstN();
-	void buscaEstIN();
-	void buscaMedico();
-	void buscaCita();
+	Taxi* buscaTaxi();
+	PPropiedad* buscaProfP();
+	PInterino* buscaProfI();
+	ENacional* buscaEstN();
+	EInternacional* buscaEstIN();
+	Medico* buscaMedico();
+	Cita* buscaCita();
 	
 
 	void ingresarAmb();
@@ -54,7 +54,7 @@ public:
 	void editarEstudianteN();
 	void editarEstudianteIN();
 	void editarMed();
-	void editarCita();
+	void historialCitas();
 
 	void eliminarAmb();
 	void eliminarTax();
@@ -64,6 +64,8 @@ public:
 	void eliminarEstudianteIN();
 	void eliminarMed();
 	void eliminarCita();
+
+	string todasCitas();
 
 	
 
