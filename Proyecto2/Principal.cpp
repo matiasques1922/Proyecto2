@@ -1,13 +1,19 @@
 #include "Interfaz.h"
+#include "Controladora.h"
 
 
 int main() {
 	int op, op1, op2, op3, op4, op5;
-    string nombreH;
-    cout << "Ingrese el nombre del hospital: ";
-    cin >> nombreH;
+    string ced, dir, num;
+    cout << "HOSPITAL-UNIVERSITARIO" << endl;
+    cout << "Ingrese la cedula juridica del hospital: ";
+    cin >> ced;
+    cout << "Ingrese la direccion del hospital: ";
+    cin >> dir;
+    cout << "Ingrese el numero telefonico del hospital: ";
+    cin >> num;
     system("cls");
-    Hospital* HO = new Hospital(nombreH);
+    SALUDUNI* HO = new SALUDUNI(ced, num, dir);
 	do {
 		op = Interfaz::menuPrincipal();
 		system("cls");
@@ -139,31 +145,31 @@ int main() {
         }break;
 
         case 3: {
-                //busquedas
             do {
                 op3 = Interfaz::subMenuBusquedas();
                 system("cls");
                 switch (op3) {
                 case 1: {
-                    //pacientes
+                   cout << HO->pacientes() << endl;
+                   system("pause");
                 }break;
                 case 2: {
-                    //medicos
+                   cout << HO->medicos() << endl;
+                   system("pause");
                 }break;
                 case 3: {
-                    //transporte
+                   cout << HO->transporte() << endl;
+                   system("pause");
                 }break;
                 case 4: {
-                    //especifica placa, ced, pasp
+                    HO->busquedaEspecifica();
                 }break;
                 case 5: {
-                    //reportes
                     do {
                         op4 = Interfaz::subsubMenuBusquedasReportes();
                         system("cls");
                         switch (op4) {
                         case 1: {
-                            //datos empresa
                             cout << HO->toString() << endl;
                             system("pause");
                         }break;

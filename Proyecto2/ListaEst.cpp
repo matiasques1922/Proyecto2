@@ -89,7 +89,8 @@ bool ListaEst::eliminarEstIN(string ced) {
 string ListaEst::internacional() {
 	stringstream s;
 	NodoEst* pExt = ppio;
-	s << "---------------LISTA ESTUDIANTES---------------" << endl;
+	s << "---------------LISTA ESTUDIANTES---------------" << endl
+	<< "----------------INTERNACIONALES----------------" << endl;
 	while (pExt != NULL) {
 		if (pExt->getEstudianteIN() != NULL)
 			s << pExt->getEstudianteIN()->toString() << endl;
@@ -101,7 +102,8 @@ string ListaEst::internacional() {
 string ListaEst::nacional() {
 	stringstream s;
 	NodoEst* pExt = ppio;
-	s << "---------------LISTA ESTUDIANTES---------------" << endl;
+	s << "---------------LISTA ESTUDIANTES---------------" << endl
+		<< "-------------------NACIONALES------------------" << endl;
 	while (pExt != NULL) {
 		if (pExt->getEstudianteN() != NULL)
 			s << pExt->getEstudianteN()->toString() << endl;

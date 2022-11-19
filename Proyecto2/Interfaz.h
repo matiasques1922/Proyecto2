@@ -1,5 +1,5 @@
 #pragma once
-#include "Hospital.h"
+#include "SALUDUNI.h"
 class Interfaz
 {
 public:

@@ -5,11 +5,14 @@
 #include "ListaTax.h"
 #include "ListaProf.h"
 #include "ListaEst.h"
-class Hospital
+class SALUDUNI
 {
 private:
 	//contenedor medicos, profesores, estudiantes, ambulancias, taxis, citas
 	string nombreHospital;
+	string cedulaJuri;
+	string direccion;
+	string numeroTele;
 	ListaAmb* listaAmb;
 	ListaTax* listaTax;
 	ListaProf* listaProf;
@@ -18,8 +21,8 @@ private:
 	ListaCitas* listaCitas;
 
 public:
-	Hospital(string);
-	virtual ~Hospital();
+	SALUDUNI(string, string, string);
+	virtual ~SALUDUNI();
 
 	ListaAmb* getAmb();
 	ListaTax* getTax();
@@ -66,10 +69,26 @@ public:
 	void eliminarCita();
 
 	string todasCitas();
+	string pacientes();
+	string medicos();
+	string transporte();
+	void busquedaEspecifica();
+
+	void reporteTotal();
+	void reporteMasCitas();
+	void reporteFecha();
+	void reporteTipoMas();
+	void reporteAmbuOcupadas();
+	void reporteInterinosMejorC();
+	void reporteEstExiliados();
 
 	
 
 	string toString();
 
 };
+
+//La clase principal encargada de todo el hospital debería llamarse : “SALUDUNI” Para
+//esta clase interesa : la cédula - jurídica del hospital, el teléfono del hospital, la
+//dirección física del hospital y el nombre del hospital, es decir : “HOSPITALUNIVERSITARIO”
 

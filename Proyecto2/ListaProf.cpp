@@ -90,7 +90,8 @@ bool ListaProf::eliminarProfI(string ced) {
 string ListaProf::propiedad() {
 	stringstream s;
 	NodoProf* pExt = ppio;
-	s << "----------------LISTA PROFESORES---------------" << endl;
+	s << "----------------LISTA PROFESORES---------------" << endl
+		<< "------------------PROPIETARIOS-----------------" << endl;
 	while (pExt != NULL) {
 		if (pExt->getProfesorP() != NULL)
 			s << pExt->getProfesorP()->toString() << endl;
@@ -102,7 +103,8 @@ string ListaProf::propiedad() {
 string ListaProf::interino() {
 	stringstream s;
 	NodoProf* pExt = ppio;
-	s << "----------------LISTA PROFESORES---------------" << endl;
+	s << "----------------LISTA PROFESORES---------------" << endl
+		<< "------------------INTERINOS--------------------" << endl;
 	while (pExt != NULL) {
 		if (pExt->getProfesorI() != NULL)
 			s << pExt->getProfesorI()->toString() << endl;

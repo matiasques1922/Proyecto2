@@ -136,7 +136,7 @@
     <ClCompile Include="Estudiante.cpp" />
     <ClCompile Include="Fecha.cpp" />
     <ClCompile Include="Hora.cpp" />
-    <ClCompile Include="Hospital.cpp" />
+    <ClCompile Include="SALUDUNI.cpp" />
     <ClCompile Include="Interfaz.cpp" />
     <ClCompile Include="ListaAmb.cpp" />
     <ClCompile Include="ListaCitas.cpp" />
@@ -170,7 +170,7 @@
     <ClInclude Include="Estudiante.h" />
     <ClInclude Include="Fecha.h" />
     <ClInclude Include="Hora.h" />
-    <ClInclude Include="Hospital.h" />
+    <ClInclude Include="SALUDUNI.h" />
     <ClInclude Include="Interfaz.h" />
     <ClInclude Include="ListaAmb.h" />
     <ClInclude Include="ListaCitas.h" />

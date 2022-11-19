@@ -24,7 +24,7 @@
     <ClCompile Include="Interfaz.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Hospital.cpp">
+    <ClCompile Include="SALUDUNI.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Paciente.cpp">
@@ -119,7 +119,7 @@
     <ClInclude Include="Interfaz.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Hospital.h">
+    <ClInclude Include="SALUDUNI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Paciente.h">

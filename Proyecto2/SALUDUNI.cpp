@@ -1,6 +1,7 @@
-#include "Hospital.h"
+#include "SALUDUNI.h"
 
-Hospital::Hospital(string hos): nombreHospital(hos) {
+SALUDUNI::SALUDUNI(string ced, string num, string dir): cedulaJuri(ced), numeroTele(num), direccion(dir) {
+	nombreHospital = "HOSPITAL UNIVERSITARIO";
 	listaAmb = new ListaAmb();
 	listaTax = new ListaTax();
 	listaProf = new ListaProf();
@@ -8,7 +9,7 @@ Hospital::Hospital(string hos): nombreHospital(hos) {
 	listaMed = new ListaMed();
 	listaCitas = new ListaCitas();
 }
-Hospital:: ~Hospital() {
+SALUDUNI:: ~SALUDUNI() {
 	if (listaAmb != NULL)delete listaAmb;
 	if (listaTax != NULL)delete listaTax;
 	if (listaProf != NULL)delete listaProf;
@@ -17,56 +18,56 @@ Hospital:: ~Hospital() {
 	if (listaCitas != NULL)delete listaCitas;
 }
 
-ListaAmb* Hospital::getAmb() { return listaAmb; }
-ListaTax* Hospital::getTax() { return listaTax; }
-ListaProf* Hospital::getProf() { return listaProf; }
-ListaEst* Hospital::getEst() { return listaEst; }
-ListaMed* Hospital::getMed() { return listaMed; }
-ListaCitas* Hospital::getCitas() { return listaCitas; }
+ListaAmb* SALUDUNI::getAmb() { return listaAmb; }
+ListaTax* SALUDUNI::getTax() { return listaTax; }
+ListaProf* SALUDUNI::getProf() { return listaProf; }
+ListaEst* SALUDUNI::getEst() { return listaEst; }
+ListaMed* SALUDUNI::getMed() { return listaMed; }
+ListaCitas* SALUDUNI::getCitas() { return listaCitas; }
 
-Ambulancia* Hospital::buscaAmbulancia(){
+Ambulancia* SALUDUNI::buscaAmbulancia(){
 	string pla;
 	cout << "Buscando una ambulancia..." << endl << endl;
 	cout << "Ingrese la placa de la ambulancia que desea buscar: ";
 	cin >> pla;
 	return listaAmb->buscarPlaca(pla);
 }
-Taxi* Hospital::buscaTaxi(){
+Taxi* SALUDUNI::buscaTaxi(){
 	string pla;
 	cout << "Buscando un taxi..." << endl << endl;
 	cout << "Ingrese la placa del taxi que desea buscar: ";
 	cin >> pla;
 	return listaTax->buscarPlaca(pla);
 }
-PPropiedad* Hospital::buscaProfP(){
+PPropiedad* SALUDUNI::buscaProfP(){
 	string ced;
 	cout << "Buscando un profesor en propiedad..." << endl << endl;
 	cout << "Ingrese la cedula del profesor que desea buscar: ";
 	cin >> ced;
 	return listaProf->buscarCedP(ced);
 }
-PInterino* Hospital::buscaProfI(){
+PInterino* SALUDUNI::buscaProfI(){
 	string ced;
 	cout << "Buscando un profesor interino..." << endl << endl;
 	cout << "Ingrese la cedula del profesor que desea buscar: ";
 	cin >> ced;
 	return listaProf->buscarCedI(ced);
 }
-ENacional* Hospital::buscaEstN(){
+ENacional* SALUDUNI::buscaEstN(){
 	string ced;
 	cout << "Buscando un estudiante nacional..." << endl << endl;
 	cout << "Ingrese la cedula del estudiante que desea buscar: ";
 	cin >> ced;
 	return listaEst->buscarCed(ced);
 }
-EInternacional* Hospital::buscaEstIN(){
+EInternacional* SALUDUNI::buscaEstIN(){
 	string ced;
 	cout << "Buscando un estudiante internacional..." << endl << endl;
 	cout << "Ingrese el numero de pasaporte del estudiante que desea buscar: ";
 	cin >> ced;
 	return listaEst->buscarPas(ced);
 }
-Medico* Hospital::buscaMedico(){
+Medico* SALUDUNI::buscaMedico(){
 	string ced;
 	cout << "Buscando un medico..." << endl << endl;
 	cout << "Ingrese la cedula del medico que desea buscar: ";
@@ -74,7 +75,7 @@ Medico* Hospital::buscaMedico(){
 	return listaMed->buscarCed(ced);
 }
 
-void Hospital::ingresarAmb(){
+void SALUDUNI::ingresarAmb(){
 	string cod, pla, mar;
 	bool oc = false;
 	double kilo = 0;
@@ -93,7 +94,7 @@ void Hospital::ingresarAmb(){
 		system("pause");
 	}
 }
-void Hospital::ingresarTax(){
+void SALUDUNI::ingresarTax(){
 	string pla, mar;
 	double distancia = 0;
 	bool idaVuelta = true;
@@ -112,7 +113,7 @@ void Hospital::ingresarTax(){
 		system("pause");
 	}
 }
-void Hospital::ingresarProfP(){
+void SALUDUNI::ingresarProfP(){
 	string ced, nom, ape, num, uni, tit, cal;
 	int ani;
 	Transporte* trans = NULL;
@@ -142,7 +143,7 @@ void Hospital::ingresarProfP(){
 	}
 }
 
-void Hospital::ingresarProfI() {
+void SALUDUNI::ingresarProfI() {
 	string ced, nom, ape, num, uni, tit, cal;
 	int ani;
 	Transporte* trans = NULL;
@@ -172,7 +173,7 @@ void Hospital::ingresarProfI() {
 	}
 }
 
-void Hospital::ingresarEstudianteN() {
+void SALUDUNI::ingresarEstudianteN() {
 	string ced, nom, ape, num, uni, cod, ult;
 	int est;
 	Transporte* trans = NULL;
@@ -205,7 +206,7 @@ void Hospital::ingresarEstudianteN() {
 	}
 }
 
-void Hospital::ingresarEstudianteIN() {
+void SALUDUNI::ingresarEstudianteIN() {
 	string ced, nom, ape, num, uni, cod, ult, nac;
 	int est;
 	Transporte* trans = NULL;
@@ -240,7 +241,7 @@ void Hospital::ingresarEstudianteIN() {
 	}
 }
 
-void Hospital::ingresarMed(){
+void SALUDUNI::ingresarMed(){
 	string ced, nom, ape, num, esp;
 	cout << "Ingresando un nuevo medico..." << endl << endl;
 	cout << "Ingrese la cedula: ";
@@ -263,7 +264,7 @@ void Hospital::ingresarMed(){
 }
 
 
-void Hospital::editarAmb() {
+void SALUDUNI::editarAmb() {
 	cout << "EDICION DE AMBULANCIAS" << endl;
 	Ambulancia* ambu = buscaAmbulancia();
 	system("cls");
@@ -301,7 +302,7 @@ void Hospital::editarAmb() {
 	system("pause");
 }
 }
-void Hospital::editarTax() {
+void SALUDUNI::editarTax() {
 	cout << "EDICION DE TAXIS" << endl;
 	Taxi* taxi = buscaTaxi();
 	system("cls");
@@ -334,7 +335,7 @@ void Hospital::editarTax() {
 	system("pause");
 }
 }
-void Hospital::editarProfP() {
+void SALUDUNI::editarProfP() {
 	cout << "EDICION DE PROFESORES EN PROPIEDAD" << endl;
 	PPropiedad* prof = buscaProfP();
 	system("cls");
@@ -373,7 +374,7 @@ void Hospital::editarProfP() {
 		system("pause");
 	}
 }
-void Hospital::editarProfI() {
+void SALUDUNI::editarProfI() {
 	cout << "EDICION DE PROFESORES INTERINOS" << endl;
 	PInterino* prof = buscaProfI();
 	system("cls");
@@ -412,7 +413,7 @@ void Hospital::editarProfI() {
 		system("pause");
 }
 }
-void Hospital::editarEstudianteN() {
+void SALUDUNI::editarEstudianteN() {
 	cout << "EDICION DE ESTUDIANTES NACIONALES" << endl;
 	ENacional* est = buscaEstN();
 	system("cls");
@@ -457,7 +458,7 @@ void Hospital::editarEstudianteN() {
 	system("pause");
 }
 }
-void Hospital::editarEstudianteIN() {
+void SALUDUNI::editarEstudianteIN() {
 	cout << "EDICION DE ESTUDIANTES INTERNACIONALES" << endl;
 	EInternacional* est = buscaEstIN();
 	system("cls");
@@ -503,7 +504,7 @@ void Hospital::editarEstudianteIN() {
 		system("pause");
 	}
 }
-void Hospital::editarMed() {
+void SALUDUNI::editarMed() {
 	cout << "EDICION DE MEDICOS" << endl;
 	Medico* med = buscaMedico();
 	system("cls");
@@ -533,7 +534,7 @@ void Hospital::editarMed() {
 	}
 }
 
-void Hospital::eliminarAmb() {
+void SALUDUNI::eliminarAmb() {
 	string pla;
 	cout << "Ingrese la placa de la ambulancia que desea eliminar: ";
 	cin >> pla;
@@ -546,7 +547,7 @@ void Hospital::eliminarAmb() {
 		system("pause");
 	}
 }
-void Hospital::eliminarTax() {
+void SALUDUNI::eliminarTax() {
 	string pla;
 	cout << "Ingrese la placa del taxi que desea eliminar: ";
 	cin >> pla;
@@ -559,7 +560,7 @@ void Hospital::eliminarTax() {
 		system("pause");
 	}
 }
-void Hospital::eliminarProfP() {
+void SALUDUNI::eliminarProfP() {
 	string ced;
 	cout << "Ingrese la cedula del profesor que desea eliminar: ";
 	cin >> ced;
@@ -572,7 +573,7 @@ void Hospital::eliminarProfP() {
 		system("pause");
 	}
 }
-void Hospital::eliminarProfI() {
+void SALUDUNI::eliminarProfI() {
 	string ced;
 	cout << "Ingrese la cedula del profesor que desea eliminar: ";
 	cin >> ced;
@@ -585,7 +586,7 @@ void Hospital::eliminarProfI() {
 		system("pause");
 	}
 }
-void Hospital::eliminarEstudianteN() {
+void SALUDUNI::eliminarEstudianteN() {
 	string ced;
 	cout << "Ingrese la cedula del estudiante que desea eliminar: ";
 	cin >> ced;
@@ -598,7 +599,7 @@ void Hospital::eliminarEstudianteN() {
 		system("pause");
 	}
 }
-void Hospital::eliminarEstudianteIN() {
+void SALUDUNI::eliminarEstudianteIN() {
 	string ced;
 	cout << "Ingrese el numero de pasaporte del estudiante que desea eliminar: ";
 	cin >> ced;
@@ -611,7 +612,7 @@ void Hospital::eliminarEstudianteIN() {
 		system("pause");
 	}
 }
-void Hospital::eliminarMed() {
+void SALUDUNI::eliminarMed() {
 	string ced;
 	cout << "Ingrese la cedula del medico que desea eliminar: ";
 	cin >> ced;
@@ -625,7 +626,7 @@ void Hospital::eliminarMed() {
 	}
 }
 
-void Hospital::crearCita() {
+void SALUDUNI::crearCita() {
 	/*Paciente* pac = new EInternacional()*/
 	string ced, esp, cod, pla;
 	int dia, mes, anio, hora, min, numP;
@@ -651,7 +652,7 @@ void Hospital::crearCita() {
 			cout << "1- Profesor en propiedad" << endl;
 			cout << "2- Profesor interino" << endl;
 			cout << "3- Estudiante nacional" << endl;
-			cout << "4- Estudiante internacional" << endl;
+			cout << "4- Estudiante internacional" << endl << endl;
 			cout << "Ingrese la opcion que contiene el tipo de paciente con el que se creara la cita:";
 			cin >> op;
 		}
@@ -713,7 +714,7 @@ void Hospital::crearCita() {
 					cout << "TIPOS DE TRANSPORTE" << endl;
 					cout << "1- Propio" << endl;
 					cout << "2- Taxi" << endl;
-					cout << "3- Ambulancia" << endl;
+					cout << "3- Ambulancia" << endl << endl;
 					cout << "Ingrese la opcion que refiere al tipo de transporte que requiere el paciente: ";
 					cin >> opc;
 				}
@@ -744,7 +745,7 @@ void Hospital::crearCita() {
 							system("cls");
 							cout << "OPCIONES" << endl;
 							cout << "1- Ida o Vuelta" << endl;
-							cout << "2- Ida y Vuelta" << endl;
+							cout << "2- Ida y Vuelta" << endl << endl;
 							cout << "Ingrese la opcion que corresponde al tipo de viaje que se realizara: ";
 							cin >> op2;
 						}
@@ -790,7 +791,7 @@ void Hospital::crearCita() {
 							system("cls");
 							cout << "OPCIONES" << endl;
 							cout << "1- Disponible" << endl;
-							cout << "2- Ocupado" << endl;
+							cout << "2- Ocupado" << endl << endl;
 							cout << "Ingrese la opcion que corresponde al estado de la ambulancia: ";
 							cin >> op3;
 						}
@@ -857,7 +858,7 @@ void Hospital::crearCita() {
 	}
 }
 
-void Hospital::historialCitas() {
+void SALUDUNI::historialCitas() {
 	string ced;
 	cout << "Ingrese la cedula/numero de pasaporte, del paciente del cual desea obtener su historial de citas: ";
 	cin >> ced;
@@ -865,7 +866,7 @@ void Hospital::historialCitas() {
 	system("pause");
 }
 
-void Hospital::eliminarCita() {
+void SALUDUNI::eliminarCita() {
 	string cod;
 	cout << "Ingrese el codigo de la cita que desea cancelar: ";
 	cin >> cod;
@@ -879,13 +880,13 @@ void Hospital::eliminarCita() {
 	}
 }
 
-string Hospital::todasCitas() {
+string SALUDUNI::todasCitas() {
 	stringstream s;
 	s << listaCitas->toString() << endl;
 	return s.str();
 }
 
-Cita* Hospital::buscaCita() {
+Cita* SALUDUNI::buscaCita() {
 	string cod;
 	cout << "Buscando una cita..." << endl << endl;
 	cout << "Ingrese el codigo de la cita que desea buscar: ";
@@ -893,9 +894,174 @@ Cita* Hospital::buscaCita() {
 	return NULL;
 }
 
+string SALUDUNI::pacientes() {
+	stringstream s;
+	s << listaEst->nacional() << endl
+		<< listaEst->internacional() << endl
+		<< listaProf->propiedad() << endl
+		<< listaProf->interino() << endl;
+	return s.str();
+}
+
+string SALUDUNI::medicos() {
+	stringstream s;
+	s << listaMed->toString() << endl;
+	return s.str();
+}
+
+string SALUDUNI::transporte() {
+	stringstream s;
+	s << listaTax->toString() << endl
+		<< listaAmb->toString() << endl;
+	return s.str();
+}
+
+void SALUDUNI::busquedaEspecifica() {
+	int op = 0;
+	int op2 = 0;
+	int op3 = 0;
+	while (op != 1 && op != 2 && op != 3) {
+		system("cls");
+		cout << "BUSQUEDA ESPECIFICA" << endl;
+		cout << "1- Pacientes" << endl;
+		cout << "2- Medicos" << endl;
+		cout << "3- Transporte" << endl << endl;
+		cout << "Ingrese la opcion que corresponde a el termino que desea buscar: ";
+		cin >> op;
+	}
+	if (op == 1) {
+		while (op2 != 4 && op2 != 3 && op2 != 2 && op2 != 1) {
+			system("cls");
+			cout << "TIPOS DE PACIENTES" << endl;
+			cout << "1- Profesor en propiedad" << endl;
+			cout << "2- Profesor interino" << endl;
+			cout << "3- Estudiante nacional" << endl;
+			cout << "4- Estudiante internacional" << endl << endl;
+			cout << "Ingrese la opcion que corresponde al tipo de paciente a buscar: ";
+			cin >> op2;
+		}
+		if (op2 == 1) {
+			system("cls");
+			PPropiedad* prof = buscaProfP();
+			if (prof != NULL) {
+				cout << prof->toString() << endl;
+				system("pause");
+			}
+			else {
+				cout << "No se encontro un profesor con esa cedula" << endl;
+				system("pause");
+			}
+		}
+		if (op2 == 2) {
+			system("cls");
+			PInterino* prof = buscaProfI();
+			if (prof != NULL) {
+				cout << prof->toString() << endl;
+				system("pause");
+			}
+			else {
+				cout << "No se encontro un profesor con esa cedula" << endl;
+				system("pause");
+			}
+		}
+		if (op2 == 3) {
+			system("cls");
+			ENacional* est = buscaEstN();
+			if (est != NULL) {
+				cout << est->toString() << endl;
+				system("pause");
+			}
+			else {
+				cout << "No se encontro un estudiante con esa cedula" << endl;
+				system("pause");
+			}
+		}
+		if (op2 == 4) {
+			system("cls");
+			EInternacional* est = buscaEstIN();
+			if (est != NULL) {
+				cout << est->toString() << endl;
+				system("pause");
+			}
+			else {
+				cout << "No se encontro un estudiante con ese numero de pasaporte" << endl;
+				system("pause");
+			}
+		}
+	}
+	if (op == 2) {
+		system("cls");
+		Medico* med = buscaMedico();
+		if (med != NULL) {
+			cout << med->toString() << endl;
+			system("pause");
+		}
+		else {
+			cout << "No se encontro un medico con esa cedula" << endl;
+			system("pause");
+		}
+	}
+	if (op == 3) {
+		while (op3 != 1 && op3 != 2) {
+			system("cls");
+			cout << "TIPOS DE TRANSPORTE" << endl;
+			cout << "1- Taxi" << endl;
+			cout << "2- Ambulancia" << endl << endl;
+			cout << "Ingrese la opcion que corresponde al tipo de transporte a buscar: ";
+			cin >> op3;
+		}
+		if (op3 == 1) {
+			system("cls");
+			Taxi* tax = buscaTaxi();
+			if (tax != NULL) {
+				cout << tax->toString() << endl;
+				system("pause");
+			}
+			else {
+				cout << "No se encontro un taxi con esa placa" << endl;
+				system("pause");
+			}
+		}
+		if (op3 == 2) {
+			system("cls");
+			Ambulancia* amb = buscaAmbulancia();
+			if (amb != NULL) {
+				cout << amb->toString() << endl;
+				system("pause");
+			}
+			else {
+				cout << "No se encontro una ambulancia con esa placa" << endl;
+				system("pause");
+			}
+		}
+	}
+
+}
+
+void SALUDUNI::reporteTotal() {
+
+}
+void SALUDUNI::reporteMasCitas() {
+
+}
+void SALUDUNI::reporteFecha() {
+
+}
+void SALUDUNI::reporteTipoMas() {
+
+}
+void SALUDUNI::reporteAmbuOcupadas() {
+
+}
+void SALUDUNI::reporteInterinosMejorC() {
+
+}
+void SALUDUNI::reporteEstExiliados() {
+
+}
 
 
-string Hospital::toString() {
+string SALUDUNI::toString() {
 	stringstream s;
 	if (listaCitas != NULL)
 		s << listaCitas->toString() << endl;
