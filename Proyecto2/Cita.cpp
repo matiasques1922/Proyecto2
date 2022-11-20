@@ -1,3 +1,6 @@
+//MATIAS QUESADA VILCHEZ 1-1885-0420
+//ROLANDO ROJAS MORALES 4-0262-0297
+
 #include "Cita.h"
 
 Cita::Cita(string cod, Paciente* pac, Medico* med, Fecha* fe, Hora* ho):codigoC(cod){

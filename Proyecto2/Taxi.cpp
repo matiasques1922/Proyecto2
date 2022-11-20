@@ -1,3 +1,6 @@
+//MATIAS QUESADA VILCHEZ 1-1885-0420
+//ROLANDO ROJAS MORALES 4-0262-0297
+
 #include "Taxi.h"
 
 Taxi::Taxi(string pla, string mar, double dis, bool id, int num, Cobro* cob):Transporte(pla, mar), distancia(dis), idaVuelta(id), numPacientes(num), cobroPtr(cob) {} //cobro

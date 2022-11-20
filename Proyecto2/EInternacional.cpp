@@ -1,3 +1,6 @@
+//MATIAS QUESADA VILCHEZ 1-1885-0420
+//ROLANDO ROJAS MORALES 4-0262-0297
+
 #include "EInternacional.h"
 
 EInternacional::EInternacional(string ced, string nom, string ape, string num, string uni, Transporte* trans, string cod, string ult, int est, string nac):Estudiante(ced, nom, ape, num, uni, trans, cod, ult, est ), nacionalidad(nac) {}

@@ -4,6 +4,9 @@ ListaAmb::ListaAmb(){
 	ppio = NULL;
 	cont = 0;
 }
+//MATIAS QUESADA VILCHEZ 1-1885-0420
+//ROLANDO ROJAS MORALES 4-0262-0297
+
 ListaAmb:: ~ListaAmb(){}
 
 void ListaAmb::ingresar(Ambulancia* ptr){

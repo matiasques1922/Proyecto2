@@ -1,4 +1,7 @@
 #pragma once
+//MATIAS QUESADA VILCHEZ 1-1885-0420
+//ROLANDO ROJAS MORALES 4-0262-0297
+
 #include "SALUDUNI.h"
 class Interfaz
 {

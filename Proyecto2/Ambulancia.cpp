@@ -1,3 +1,6 @@
+//MATIAS QUESADA VILCHEZ 1-1885-0420
+//ROLANDO ROJAS MORALES 4-0262-0297
+
 #include "Ambulancia.h"
 
 Ambulancia::Ambulancia(string pla, string mar, string cod, bool ocu, double km):Transporte(pla, mar),codigo(cod), ocupado(ocu), kmRecorridos(km) {}
