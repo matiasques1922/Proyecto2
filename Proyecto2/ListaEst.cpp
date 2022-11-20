@@ -112,6 +112,19 @@ string ListaEst::nacional() {
 	return s.str();
 }
 
+string ListaEst::exiliados() {
+	stringstream s;
+	NodoEst* pExt = ppio;
+	s << "---------------LISTA ESTUDIANTES---------------" << endl
+		<< "----------------INTERNACIONALES----------------" << endl;
+	while (pExt != NULL) {
+		if (pExt->getEstudianteIN() != NULL && pExt->getEstudianteIN()->getCondicion() == 1)
+			s << pExt->getEstudianteIN()->toString() << endl;
+		pExt = pExt->getSig();
+	}
+	return s.str();
+}
+
 string ListaEst::toString() {
 	stringstream s;
 	NodoEst* pExt = ppio;

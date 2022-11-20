@@ -12,6 +12,9 @@ public:
 	void ingresar(Cita*);
 	Cita* buscarCod(string);
 	string historialP(string);
+	void masCitas();
+	void FechaMas();
+	void transMas();
 	string toString();
 	
 };

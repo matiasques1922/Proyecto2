@@ -20,6 +20,7 @@ public:
 
 	string nacional();
 	string internacional();
+	string exiliados();
 	string toString();
 };
 

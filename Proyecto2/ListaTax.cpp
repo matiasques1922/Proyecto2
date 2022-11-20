@@ -46,6 +46,16 @@ bool ListaTax::eliminarTax(string ced) {
 	return false;
 }
 
+double ListaTax::totalRecaudado() {
+	NodoTax* pExt = ppio;
+	double total = 0;
+	while (pExt != NULL) {
+		total = total + pExt->getTaxi()->getCobro()->getTotal();
+		pExt = pExt->getSig();
+	}
+	return total;
+}
+
 string ListaTax::toString() {
 	stringstream s;
 	NodoTax* pExt = ppio;

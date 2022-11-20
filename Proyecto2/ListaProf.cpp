@@ -113,6 +113,10 @@ string ListaProf::interino() {
 	return s.str();
 }
 
+void ListaProf::mejoresCali() {
+
+}
+
 string ListaProf::toString() {
 	stringstream s;
 	NodoProf* pExt = ppio;

@@ -22,6 +22,7 @@ public:
 	void clonaHora(Hora*);
 	string getCodigo();
 	Paciente* getPaciente();
+	Fecha* getFecha();
 
 	string toString();
 };

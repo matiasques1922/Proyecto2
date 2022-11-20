@@ -12,6 +12,7 @@ public:
 	void ingresar(Taxi*);
 	Taxi* buscarPlaca(string);
 	bool eliminarTax(string);
+	double totalRecaudado();
 	string toString();
 };
 

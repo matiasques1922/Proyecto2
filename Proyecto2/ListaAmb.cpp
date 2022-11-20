@@ -46,6 +46,19 @@ bool ListaAmb::eliminarAmb(string pla) {
 	return false;
 }
 
+string ListaAmb::ocupadas() {
+	stringstream s;
+	NodoAmb* pExt = ppio;
+	s << "---------------LISTA AMBULANCIAS---------------" << endl;
+	while (pExt != NULL) {
+		if(pExt->getAmbulancia() != NULL && pExt->getAmbulancia()->getOcupado() == true)
+		s << pExt->getAmbulancia()->toString() << endl;
+		pExt = pExt->getSig();
+	}
+	return s.str();
+
+}
+
 string ListaAmb::toString() {
 	stringstream s;
 	NodoAmb* pExt = ppio;

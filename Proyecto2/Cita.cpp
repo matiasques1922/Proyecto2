@@ -20,13 +20,16 @@ Cita:: ~Cita(){
 void Cita::clonaPaciente(Paciente* pac){
 	string cedula, nombre, apellido, numeroT, universidad;
 	Transporte* trans;
+	int tipo;
 	cedula = pac->getCedula();
 	nombre = pac->getNombre();
 	apellido = pac->getApellido();
 	numeroT = pac->getNumeroT();
 	universidad = pac->getUniversidad();
 	trans = pac->getTransporte();
+	tipo = pac->getTipoTransporte();
 	pacPtr = new Paciente(cedula, nombre, apellido, numeroT, universidad, trans);
+	pacPtr->setTipoTransporte(tipo);
 }
 void Cita::clonaMedico(Medico* med){
 	string cedula, nombre, apellido, numeroT, especialidad;
@@ -54,6 +57,7 @@ void Cita::clonaHora(Hora* ho){
 	hor = new Hora(hora, min);
 }
 
+Fecha* Cita::getFecha() { return fec; }
 Paciente* Cita::getPaciente() { return pacPtr; }
 string Cita::getCodigo() { return codigoC; }
 

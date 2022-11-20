@@ -7,13 +7,16 @@ class Paciente: public Persona{
 protected:
 	string universidad;
 	Transporte* transPtr;
+	int tipoTransporte;
 public:
 	Paciente(string,string,string,string,string, Transporte*);
 	virtual ~Paciente();
 	string getUniversidad();
 	Transporte* getTransporte();
+	int getTipoTransporte();
 	void setTransporte(Transporte*);
 	void setUniversidad(string);
+	void setTipoTransporte(int);
 
 	string toString();
 

@@ -12,6 +12,7 @@ public:
 	void ingresar(Ambulancia*);
 	Ambulancia* buscarPlaca(string);
 	bool eliminarAmb(string);
+	string ocupadas();
 	string toString();
 };
 

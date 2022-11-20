@@ -174,28 +174,25 @@ int main() {
                             system("pause");
                         }break;
                         case 2: {
-                            //total pago taxis
-
+                            HO->reporteTotal();
                         }break;
                         case 3: {
-                            //perosna con mas citas en el hospi
-
+                            HO->reporteMasCitas();
                         }break;
                         case 4: {
-                            //fecha con mayor numero de asistencias de pacientes
-
+                            HO->reporteFecha();
                         }break;
                         case 5: {
-                            //transporte mas usado por pacinetes
+                            HO->reporteTipoMas();
                         }break;
                         case 6: {
-                            //reporte de ambulancias mas usadas
+                            HO->reporteAmbuOcupadas();
                         }break;
                         case 7: {
-                            //reporte profesores interinos con mejor calificacion 
+                            HO->reporteInterinosMejorC();
                         }break;
                         case 8: {
-                            //reporte estudiantesinternacionales (exiliados)
+                            HO->reporteEstExiliados();
                         }break;
                         case 9: {
 

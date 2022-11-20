@@ -16,6 +16,7 @@ public:
 	PInterino* buscarCedI(string);
 	bool eliminarProfP(string);
 	bool eliminarProfI(string);
+	void mejoresCali();
 
 	string propiedad();
 	string interino();

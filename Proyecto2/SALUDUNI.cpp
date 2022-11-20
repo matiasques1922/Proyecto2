@@ -697,6 +697,7 @@ void SALUDUNI::crearCita() {
 			cin >> esp;
 			med = listaMed->buscarEsp(esp);
 			if (listaMed->buscarEsp(esp) != NULL) {
+				system("cls");
 				cout << "Ingrese el dia en el que sera la cita: ";
 				cin >> dia;
 				cout << "Ingrese el mes en el que sera la cita: ";
@@ -721,6 +722,7 @@ void SALUDUNI::crearCita() {
 				if (opc == 1) {
 					system("cls");
 					cout << "Se selecciono transporte propio" << endl;
+					pac->setTipoTransporte(1);
 					pac->setTransporte(trans);
 					cita = new Cita(cod, pac, med, fec, hor);
 					listaCitas->ingresar(cita);
@@ -729,6 +731,7 @@ void SALUDUNI::crearCita() {
 				}
 				if (opc == 2) {
 					system("cls");
+					pac->setTipoTransporte(2);
 					cout << listaTax->toString() << endl;
 					cout << "Basandose en la base de datos..." << endl;
 					cout << "Ingrese la placa del taxi que usara el paciente: ";
@@ -776,35 +779,22 @@ void SALUDUNI::crearCita() {
 						system("pause");
 					}
 				}
-				if (op == 3) {
+				if (opc == 3) {
 					system("cls");
+					pac->setTipoTransporte(3);
 					cout << listaAmb->toString() << endl;
 					cout << "Basandose en la base de datos..." << endl;
 					cout << "Ingrese la placa de la ambulancia que usara el paciente: ";
 					cin >> pla;
 					trans = listaAmb->buscarPlaca(pla);
 					if (trans != NULL && listaAmb->buscarPlaca(pla)->getOcupado() == false) {
-						cout << "Ingrese la distancia de la ruta a recorrer por el taxi (solo ida o vuelta): ";
+						cout << "Ingrese la distancia de la ruta a recorrer por la ambulancia (solo ida o vuelta): ";
 						cin >> dis;
 						listaAmb->buscarPlaca(pla)->setKM(dis);
-						while (op3 != 1 && op3 != 2) {
-							system("cls");
-							cout << "OPCIONES" << endl;
-							cout << "1- Disponible" << endl;
-							cout << "2- Ocupado" << endl << endl;
-							cout << "Ingrese la opcion que corresponde al estado de la ambulancia: ";
-							cin >> op3;
-						}
-						if (op3 == 1) {
-							listaAmb->buscarPlaca(pla)->setOcupado(false);
-							cout << "El estado ahora es: Disponible" << endl;
-							system("pause");
-						}
-						if (op3 == 2) {
-							listaAmb->buscarPlaca(pla)->setOcupado(true);
-							cout << "El estado ahora es: Ocupado" << endl;
-							system("pause");
-						}
+						listaAmb->buscarPlaca(pla)->setOcupado(true);
+						cout << "El estado de la ambulancia ahora es: Ocupado" << endl;
+						system("pause");
+					
 						while (op4 != 1 && op4 != 2) {
 							system("cls");
 							cout << "OPCIONES" << endl;
@@ -1039,25 +1029,39 @@ void SALUDUNI::busquedaEspecifica() {
 }
 
 void SALUDUNI::reporteTotal() {
-
+	cout << "REPORTE TOTAL DE DINERO RECAUDADO POR TAXIS" << endl << endl;
+	cout << "El total recaudado por taxis es de: " << listaTax->totalRecaudado() << " colones" << endl;
+	system("pause");
 }
 void SALUDUNI::reporteMasCitas() {
+	cout << "REPORTE PERSONA CON MAS CITAS EN EL HOSPITAL" << endl << endl;
 
+	system("pause");
 }
 void SALUDUNI::reporteFecha() {
+	cout << "REPORTE FECHA CON MAS ASISTENCIAS" << endl << endl;
 
+	system("pause");
 }
 void SALUDUNI::reporteTipoMas() {
-
+	cout << "REPORTE TIPO DE TRANSPORTE MAS UTILIZADO" << endl << endl;
+	listaCitas->transMas();
+	system("pause");
 }
 void SALUDUNI::reporteAmbuOcupadas() {
-
+	cout << "REPORTE AMBULANCIAS OCUPADAS" << endl << endl;
+	cout << listaAmb->ocupadas() << endl;
+	system("pause");
 }
 void SALUDUNI::reporteInterinosMejorC() {
-
+	cout << "REPORTE PROFESORES INTERINOS MEJOR CALIFICADOS" << endl << endl;
+	//
+	system("pause");
 }
 void SALUDUNI::reporteEstExiliados() {
-
+	cout << "REPORTE ESTUDIANTES EXILIADOS" << endl << endl;
+	cout << listaEst->exiliados() << endl;
+	system("pause");
 }
 
 
