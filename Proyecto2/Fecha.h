@@ -9,6 +9,7 @@ private:
 	int mes;
 	int anio;
 public:
+	Fecha();
 	Fecha(int, int, int);
 	virtual ~Fecha();
 	int getDia();

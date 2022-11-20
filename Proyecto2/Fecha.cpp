@@ -1,5 +1,10 @@
 #include "Fecha.h"
 
+Fecha::Fecha() {
+	dia = 0;
+	mes = 0;
+	anio = 0;
+}
 Fecha::Fecha(int d, int m, int a) : dia(d), mes(m), anio(a) {}
 
 Fecha:: ~Fecha() {
