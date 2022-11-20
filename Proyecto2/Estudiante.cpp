@@ -1,10 +1,12 @@
 #include "Estudiante.h"
 
-Estudiante::Estudiante(string ced, string nom, string ape, string  num, string uni, Transporte* trans, string cod, string ult):Paciente(ced, nom, ape, num, uni, trans), codigoCa(cod), ultimoNivel(ult) {}
+Estudiante::Estudiante(string ced, string nom, string ape, string  num, string uni, Transporte* trans, string cod, string ult, int est):Paciente(ced, nom, ape, num, uni, trans), codigoCa(cod), ultimoNivel(ult), estado(est) {}
 Estudiante:: ~Estudiante(){}
 
 void Estudiante::setCodigo(string cod) { codigoCa = cod; }
 void Estudiante::setUltimo(string ult) { ultimoNivel = ult; }
+void Estudiante::setEstado(int est) { estado = est; }
+int Estudiante::getEstado() { return estado; }
 
 string Estudiante::toString(){
 	stringstream s;

@@ -12,8 +12,8 @@ public:
 
 	void ingresarP(PPropiedad*);
 	void ingresarI(PInterino*);
-	PPropiedad* buscarCedP(string);
-	PInterino* buscarCedI(string);
+	/*PPropiedad* buscarCedP(string);*/
+	Profesor* buscarCed(string);
 	bool eliminarProfP(string);
 	bool eliminarProfI(string);
 	void mejoresCali();

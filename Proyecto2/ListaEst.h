@@ -13,8 +13,8 @@ public:
 	void ingresarIN(EInternacional*);
 	void ingresarN(ENacional*);
 
-	ENacional* buscarCed(string);
-	EInternacional* buscarPas(string);
+	/*ENacional* buscarCed(string);*/
+	Estudiante* buscarCed(string);
 	bool eliminarEstN(string);
 	bool eliminarEstIN(string);
 

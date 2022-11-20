@@ -32,6 +32,11 @@ bool ListaAmb::eliminarAmb(string pla) {
 	}
 	
 	while (pExt != NULL) {
+		if (pExt->getAmbulancia()->getPlaca() == pla) {
+			delete pExt;
+			cont--;
+			return true;
+		}
 		if(pExt->getSig() != NULL) {
 			if (pExt->getSig()->getAmbulancia()->getPlaca() == pla) {
 				NodoAmb* pExt1 = pExt->getSig();

@@ -21,6 +21,7 @@ private:
 	ListaCitas* listaCitas;
 
 public:
+	SALUDUNI();
 	SALUDUNI(string, string, string);
 	virtual ~SALUDUNI();
 
@@ -33,10 +34,10 @@ public:
 
 	Ambulancia* buscaAmbulancia();
 	Taxi* buscaTaxi();
-	PPropiedad* buscaProfP();
-	PInterino* buscaProfI();
-	ENacional* buscaEstN();
-	EInternacional* buscaEstIN();
+	//PPropiedad* buscaProfP();
+	Profesor* buscaProf();
+	//ENacional* buscaEstN();
+	Estudiante* buscaEst();
 	Medico* buscaMedico();
 	Cita* buscaCita();
 	

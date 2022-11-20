@@ -10,6 +10,7 @@ protected:
     string nombre;
     string numeroT;
 public:
+    Persona();
     Persona(string, string, string, string);
     virtual ~Persona();
     string getCedula();

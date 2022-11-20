@@ -42,6 +42,11 @@ bool ListaMed::eliminarMed(string ced) {
 	}
 
 	while (pExt != NULL) {
+		if (pExt->getMedico()->getCedula() == ced) {
+			delete pExt;
+			cont--;
+			return true;
+		}
 		if (pExt->getSig() != NULL) {
 			if (pExt->getSig()->getMedico()->getCedula() == ced) {
 				NodoMed* pExt1 = pExt->getSig();
@@ -50,8 +55,8 @@ bool ListaMed::eliminarMed(string ced) {
 				cont--;
 				return true;
 			}
-			pExt = pExt->getSig();
 		}
+		pExt = pExt->getSig();
 	}
 	return false;
 }

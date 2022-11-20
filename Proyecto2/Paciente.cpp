@@ -1,5 +1,10 @@
 #include "Paciente.h"
 
+Paciente::Paciente() {
+	universidad = "";
+	transPtr = NULL;
+	tipoTransporte = 0;
+}
 Paciente::Paciente(string ced, string nom, string ape, string num, string uni, Transporte* ptr) :Persona(ced, nom, ape, num), universidad(uni), transPtr(ptr) { tipoTransporte = 0; }
 Paciente:: ~Paciente(){
 	if (transPtr != NULL)

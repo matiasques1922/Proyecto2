@@ -1,5 +1,5 @@
 #include "PInterino.h"
-
+PInterino::PInterino(){}
 PInterino::PInterino(string ced, string nom, string ape, string num, string uni, Transporte* trans, string tit, int an, string cal):Profesor(ced, nom, ape, num, uni, trans, tit, an, cal) {}
 PInterino:: ~PInterino(){}
 string PInterino::getTitulo() { return titulo; }

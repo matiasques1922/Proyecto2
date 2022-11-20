@@ -8,7 +8,7 @@ string PPropiedad::getCodigo() { return codigo; }
 string PPropiedad::toString() {
 	stringstream s;
 	s << Profesor::toString() << endl
-		<< "Tipo: Profesor Interino" << endl
+		<< "Tipo: Profesor Propiedad" << endl
 		<< "Cedula: " << cedula << endl
 		<< "Titulo: " << titulo << endl
 		<< "Anios laborados: " << anioslab << endl

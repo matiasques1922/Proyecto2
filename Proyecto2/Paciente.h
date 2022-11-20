@@ -9,6 +9,7 @@ protected:
 	Transporte* transPtr;
 	int tipoTransporte;
 public:
+	Paciente();
 	Paciente(string,string,string,string,string, Transporte*);
 	virtual ~Paciente();
 	string getUniversidad();

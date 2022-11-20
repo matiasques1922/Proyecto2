@@ -32,6 +32,11 @@ bool ListaTax::eliminarTax(string ced) {
 	}
 
 	while (pExt != NULL) {
+		if (pExt->getTaxi()->getPlaca() == ced) {
+			delete pExt;
+			cont--;
+			return true;
+		}
 		if (pExt->getSig() != NULL) {
 			if (pExt->getSig()->getTaxi()->getPlaca() == ced) {
 				NodoTax* pExt1 = pExt->getSig();

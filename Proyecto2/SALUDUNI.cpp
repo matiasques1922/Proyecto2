@@ -1,5 +1,9 @@
 #include "SALUDUNI.h"
-
+SALUDUNI::SALUDUNI() {
+	cedulaJuri = "";
+	numeroTele = "";
+	direccion = "";
+}
 SALUDUNI::SALUDUNI(string ced, string num, string dir): cedulaJuri(ced), numeroTele(num), direccion(dir) {
 	nombreHospital = "HOSPITAL UNIVERSITARIO";
 	listaAmb = new ListaAmb();
@@ -39,33 +43,33 @@ Taxi* SALUDUNI::buscaTaxi(){
 	cin >> pla;
 	return listaTax->buscarPlaca(pla);
 }
-PPropiedad* SALUDUNI::buscaProfP(){
-	string ced;
-	cout << "Buscando un profesor en propiedad..." << endl << endl;
-	cout << "Ingrese la cedula del profesor que desea buscar: ";
-	cin >> ced;
-	return listaProf->buscarCedP(ced);
-}
-PInterino* SALUDUNI::buscaProfI(){
+//PPropiedad* SALUDUNI::buscaProfP(){
+//	string ced;
+//	cout << "Buscando un profesor en propiedad..." << endl << endl;
+//	cout << "Ingrese la cedula del profesor que desea buscar: ";
+//	cin >> ced;
+//	return listaProf->buscarCed(ced);
+//}
+Profesor* SALUDUNI::buscaProf(){
 	string ced;
 	cout << "Buscando un profesor interino..." << endl << endl;
 	cout << "Ingrese la cedula del profesor que desea buscar: ";
 	cin >> ced;
-	return listaProf->buscarCedI(ced);
+	return listaProf->buscarCed(ced);
 }
-ENacional* SALUDUNI::buscaEstN(){
-	string ced;
-	cout << "Buscando un estudiante nacional..." << endl << endl;
-	cout << "Ingrese la cedula del estudiante que desea buscar: ";
-	cin >> ced;
-	return listaEst->buscarCed(ced);
-}
-EInternacional* SALUDUNI::buscaEstIN(){
+//ENacional* SALUDUNI::buscaEstN(){
+//	string ced;
+//	cout << "Buscando un estudiante nacional..." << endl << endl;
+//	cout << "Ingrese la cedula del estudiante que desea buscar: ";
+//	cin >> ced;
+//	return listaEst->buscarCed(ced);
+//}
+Estudiante* SALUDUNI::buscaEst(){
 	string ced;
 	cout << "Buscando un estudiante internacional..." << endl << endl;
 	cout << "Ingrese el numero de pasaporte del estudiante que desea buscar: ";
 	cin >> ced;
-	return listaEst->buscarPas(ced);
+	return listaEst->buscarCed(ced);
 }
 Medico* SALUDUNI::buscaMedico(){
 	string ced;
@@ -120,7 +124,7 @@ void SALUDUNI::ingresarProfP(){
 	cout << "Ingresando un nuevo profesor en propiedad..." << endl << endl;
 	cout << "Ingrese la cedula: ";
 	cin >> ced;
-	if (listaProf->buscarCedP(ced) == NULL) {
+	if (listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL && listaMed->buscarCed(ced) == NULL) {
 		cout << "Ingrese el nombre: ";
 		cin >> nom;
 		cout << "Ingrese el apellido: ";
@@ -150,7 +154,7 @@ void SALUDUNI::ingresarProfI() {
 	cout << "Ingresando un nuevo profesor interino..." << endl << endl;
 	cout << "Ingrese la cedula: ";
 	cin >> ced;
-	if (listaProf->buscarCedI(ced) == NULL) {
+	if (listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL && listaMed->buscarCed(ced) == NULL) {
 		cout << "Ingrese el nombre: ";
 		cin >> nom;
 		cout << "Ingrese el apellido: ";
@@ -180,7 +184,7 @@ void SALUDUNI::ingresarEstudianteN() {
 	cout << "Ingresando un nuevo estudiante nacional..." << endl << endl;
 	cout << "Ingrese la cedula: ";
 	cin >> ced;
-	if (listaEst->buscarCed(ced) == NULL) {
+	if (listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL && listaMed->buscarCed(ced) == NULL) {
 		cout << "Ingrese el nombre: ";
 		cin >> nom;
 		cout << "Ingrese el apellido: ";
@@ -213,7 +217,7 @@ void SALUDUNI::ingresarEstudianteIN() {
 	cout << "Ingresando un nuevo estudiante internacional..." << endl << endl;
 	cout << "Ingrese el numero de pasaporte: ";
 	cin >> ced;
-	if (listaEst->buscarPas(ced) == NULL) {
+	if (listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL && listaMed->buscarCed(ced) == NULL) {
 		cout << "Ingrese el nombre: ";
 		cin >> nom;
 		cout << "Ingrese el apellido: ";
@@ -233,7 +237,7 @@ void SALUDUNI::ingresarEstudianteIN() {
 		cout << "2- Refugiado" << endl;
 		cout << "Digite la opcion: ";
 		cin >> est;
-		listaEst->ingresarIN(new EInternacional(ced, nom, ape, num, uni, trans, cod, ult, nac, est));
+		listaEst->ingresarIN(new EInternacional(ced, nom, ape, num, uni, trans, cod, ult, est, nac));
 	}
 	else {
 		cout << "Ya existe un estudiante con este numero de pasaporte" << endl;
@@ -246,7 +250,7 @@ void SALUDUNI::ingresarMed(){
 	cout << "Ingresando un nuevo medico..." << endl << endl;
 	cout << "Ingrese la cedula: ";
 	cin >> ced;
-	if (listaMed->buscarCed(ced) == NULL) {
+	if (listaMed->buscarCed(ced) == NULL && listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL){
 		cout << "Ingrese el nombre: ";
 		cin >> nom;
 		cout << "Ingrese el apellido: ";
@@ -275,12 +279,13 @@ void SALUDUNI::editarAmb() {
 		bool oc = false;
 		double kilo = 0;
 		int op;
+		cout << "Ingrese la nueva placa de la ambulancia:  ";
+		cin >> pla;
+		if (listaAmb->buscarPlaca(pla) == NULL) {
+		listaAmb->buscarPlaca(ambu->getPlaca())->setPlaca(pla);
 		cout << "Ingrese el nuevo codigo de la ambulancia: ";
 		cin >> cod;
 		listaAmb->buscarPlaca(ambu->getPlaca())->setCodigo(cod);
-		cout << "Ingrese la nueva placa de la ambulancia:  ";
-		cin >> pla;
-		listaAmb->buscarPlaca(ambu->getPlaca())->setPlaca(pla);
 		cout << "Ingrese la nueva marca de la ambulancia: ";
 		cin >> mar;
 		listaAmb->buscarPlaca(ambu->getPlaca())->setMarca(mar);
@@ -296,6 +301,11 @@ void SALUDUNI::editarAmb() {
 			listaAmb->buscarPlaca(ambu->getPlaca())->setOcupado(false);
 		else
 			listaAmb->buscarPlaca(ambu->getPlaca())->setOcupado(true);
+		}
+		else {
+			cout << "Ya existe una ambulancia con esta placa" << endl;
+			system("pause");
+		}
 	}
 	else{
 		cout << "No existe una ambulancia con esa placa" << endl;
@@ -316,19 +326,26 @@ void SALUDUNI::editarTax() {
 		double total;
 		cout << "Ingrese la nueva placa del taxi:  ";
 		cin >> pla;
-		listaTax->buscarPlaca(taxi->getPlaca())->setPlaca(pla);
-		cout << "Ingrese la nueva marca del taxi: ";
-		cin >> mar;
-		listaTax->buscarPlaca(taxi->getPlaca())->setMarca(mar);
-		cout << "Ingrese la nueva distancia recorrida del taxi: ";
-		cin >> distancia;
-		listaTax->buscarPlaca(taxi->getPlaca())->setDistancia(distancia);
-		cout << "Ingrese la nueva cantidad de pacientes que posee el taxi: ";
-		cin >> numPacientes;
-		listaTax->buscarPlaca(taxi->getPlaca())->setNumPacientes(numPacientes);
-		cout << "Ingrese el nuevo total de dinero generado por el taxi: ";
-		cin >> total;
-		listaTax->buscarPlaca(taxi->getPlaca())->getCobro()->setTotal(total);
+		if (listaTax->buscarPlaca(pla) == NULL) {
+			listaTax->buscarPlaca(taxi->getPlaca())->setPlaca(pla);
+			cout << "Ingrese la nueva marca del taxi: ";
+			cin >> mar;
+			listaTax->buscarPlaca(taxi->getPlaca())->setMarca(mar);
+			cout << "Ingrese la nueva distancia recorrida del taxi: ";
+			cin >> distancia;
+			listaTax->buscarPlaca(taxi->getPlaca())->setDistancia(distancia);
+			cout << "Ingrese la nueva cantidad de pacientes que posee el taxi: ";
+			cin >> numPacientes;
+			listaTax->buscarPlaca(taxi->getPlaca())->setNumPacientes(numPacientes);
+			cout << "Ingrese el nuevo total de dinero generado por el taxi: ";
+			cin >> total;
+			listaTax->buscarPlaca(taxi->getPlaca())->getCobro()->setTotal(total);
+		}
+		else {
+			cout << "Ya existe un taxi con esa placa" << endl;
+			system("pause");
+		}
+
 	}
 	else{
 		cout << "No existe un taxi con esa placa" << endl;
@@ -337,7 +354,7 @@ void SALUDUNI::editarTax() {
 }
 void SALUDUNI::editarProfP() {
 	cout << "EDICION DE PROFESORES EN PROPIEDAD" << endl;
-	PPropiedad* prof = buscaProfP();
+	Profesor* prof = buscaProf();
 	system("cls");
 	cout << "EDICION DE PROFESORES EN PROPIEDAD" << endl;
 	if (prof != NULL) {
@@ -346,28 +363,34 @@ void SALUDUNI::editarProfP() {
 		int ani;
 		cout << "Ingrese la nueva cedula: ";
 		cin >> ced;
-		listaProf->buscarCedP(prof->getCedula())->setCedula(ced);
-		cout << "Ingrese el nuevo nombre: ";
-		cin >> nom;
-		listaProf->buscarCedP(prof->getCedula())->setNombre(nom);
-		cout << "Ingrese el nuevo apellido: ";
-		cin >> ape;
-		listaProf->buscarCedP(prof->getCedula())->setApellido(ape);
-		cout << "Ingrese el nuevo numero telefonico: ";
-		cin >> num;
-		listaProf->buscarCedP(prof->getCedula())->setNumeroT(num);
-		cout << "Ingrese la nueva universidad a la que pertenece: ";
-		cin >> uni;
-		listaProf->buscarCedP(prof->getCedula())->setUniversidad(uni);
-		cout << "Ingrese el nuevo titulo universitario que posee: ";
-		cin >> tit;
-		listaProf->buscarCedP(prof->getCedula())->setTitulo(tit);
-		cout << "Ingrese la nueva cantidad de anios que ha trabajado: ";
-		cin >> ani;
-		listaProf->buscarCedP(prof->getCedula())->setAniosLab(ani);
-		cout << "Ingrese el nuevo codigo que posee: ";
-		cin >> cal;
-		listaProf->buscarCedP(prof->getCedula())->setCodigo(cal);
+		if (listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL && listaMed->buscarCed(ced) == NULL) {
+			listaProf->buscarCed(prof->getCedula())->setCedula(ced);
+			cout << "Ingrese el nuevo nombre: ";
+			cin >> nom;
+			listaProf->buscarCed(prof->getCedula())->setNombre(nom);
+			cout << "Ingrese el nuevo apellido: ";
+			cin >> ape;
+			listaProf->buscarCed(prof->getCedula())->setApellido(ape);
+			cout << "Ingrese el nuevo numero telefonico: ";
+			cin >> num;
+			listaProf->buscarCed(prof->getCedula())->setNumeroT(num);
+			cout << "Ingrese la nueva universidad a la que pertenece: ";
+			cin >> uni;
+			listaProf->buscarCed(prof->getCedula())->setUniversidad(uni);
+			cout << "Ingrese el nuevo titulo universitario que posee: ";
+			cin >> tit;
+			listaProf->buscarCed(prof->getCedula())->setTitulo(tit);
+			cout << "Ingrese la nueva cantidad de anios que ha trabajado: ";
+			cin >> ani;
+			listaProf->buscarCed(prof->getCedula())->setAniosLab(ani);
+			cout << "Ingrese el nuevo codigo que posee: ";
+			cin >> cal;
+			listaProf->buscarCed(prof->getCedula())->setCodigo(cal);
+		}
+		else {
+			cout << "Ya existe un profesor con esta cedula" << endl;
+			system("pause");
+		}
 	}
 	else {
 		cout << "No existe un profesor con esa cedula" << endl;
@@ -376,7 +399,7 @@ void SALUDUNI::editarProfP() {
 }
 void SALUDUNI::editarProfI() {
 	cout << "EDICION DE PROFESORES INTERINOS" << endl;
-	PInterino* prof = buscaProfI();
+	Profesor* prof = buscaProf();
 	system("cls");
 	cout << "EDICION DE PROFESORES INTERINOS" << endl;
 	if (prof != NULL) {
@@ -385,28 +408,34 @@ void SALUDUNI::editarProfI() {
 		int ani;
 		cout << "Ingrese la nueva cedula: ";
 		cin >> ced;
-		listaProf->buscarCedI(prof->getCedula())->setCedula(ced);
-		cout << "Ingrese el nuevo nombre: ";
-		cin >> nom;
-		listaProf->buscarCedI(prof->getCedula())->setNombre(nom);
-		cout << "Ingrese el nuevo apellido: ";
-		cin >> ape;
-		listaProf->buscarCedI(prof->getCedula())->setApellido(ape);
-		cout << "Ingrese el nuevo numero telefonico: ";
-		cin >> num;
-		listaProf->buscarCedI(prof->getCedula())->setNumeroT(num);
-		cout << "Ingrese la nueva universidad a la que pertenece: ";
-		cin >> uni;
-		listaProf->buscarCedI(prof->getCedula())->setUniversidad(uni);
-		cout << "Ingrese el nuevo titulo universitario que posee: ";
-		cin >> tit;
-		listaProf->buscarCedI(prof->getCedula())->setTitulo(tit);
-		cout << "Ingrese la nueva cantidad de anios que ha trabajado: ";
-		cin >> ani;
-		listaProf->buscarCedI(prof->getCedula())->setAniosLab(ani);
-		cout << "Ingrese el nuevo codigo que posee: ";
-		cin >> cal;
-		listaProf->buscarCedI(prof->getCedula())->setCodigo(cal);
+		if (listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL && listaMed->buscarCed(ced) == NULL) {
+			listaProf->buscarCed(prof->getCedula())->setCedula(ced);
+			cout << "Ingrese el nuevo nombre: ";
+			cin >> nom;
+			listaProf->buscarCed(prof->getCedula())->setNombre(nom);
+			cout << "Ingrese el nuevo apellido: ";
+			cin >> ape;
+			listaProf->buscarCed(prof->getCedula())->setApellido(ape);
+			cout << "Ingrese el nuevo numero telefonico: ";
+			cin >> num;
+			listaProf->buscarCed(prof->getCedula())->setNumeroT(num);
+			cout << "Ingrese la nueva universidad a la que pertenece: ";
+			cin >> uni;
+			listaProf->buscarCed(prof->getCedula())->setUniversidad(uni);
+			cout << "Ingrese el nuevo titulo universitario que posee: ";
+			cin >> tit;
+			listaProf->buscarCed(prof->getCedula())->setTitulo(tit);
+			cout << "Ingrese la nueva cantidad de anios que ha trabajado: ";
+			cin >> ani;
+			listaProf->buscarCed(prof->getCedula())->setAniosLab(ani);
+			cout << "Ingrese el nuevo codigo que posee: ";
+			cin >> cal;
+			listaProf->buscarCed(prof->getCedula())->setCodigo(cal);
+		}
+		else {
+			cout << "Ya existe un profesor con esta cedula" << endl;
+			system("pause");
+		}
 	}
 	else{
 		cout << "No existe un profesor con esa cedula" << endl;
@@ -415,7 +444,7 @@ void SALUDUNI::editarProfI() {
 }
 void SALUDUNI::editarEstudianteN() {
 	cout << "EDICION DE ESTUDIANTES NACIONALES" << endl;
-	ENacional* est = buscaEstN();
+	Estudiante* est = buscaEst();
 	system("cls");
 	cout << "EDICION DE ESTUDIANTES NACIONALES" << endl;
 	if (est != NULL) {
@@ -424,34 +453,40 @@ void SALUDUNI::editarEstudianteN() {
 		int estu;
 		cout << "Ingrese la nueva cedula: ";
 		cin >> ced;
-		listaEst->buscarCed(est->getCedula())->setCedula(ced);
-		cout << "Ingrese el nuevo nombre: ";
-		cin >> nom;
-		listaEst->buscarCed(est->getCedula())->setNombre(nom);
-		cout << "Ingrese el nuevo apellido: ";
-		cin >> ape;
-		listaEst->buscarCed(est->getCedula())->setApellido(ape);
-		cout << "Ingrese el nuevo numero telefonico: ";
-		cin >> num;
-		listaEst->buscarCed(est->getCedula())->setNumeroT(num);
-		cout << "Ingrese la nueva universidad a la que pertenece: ";
-		cin >> uni;
-		listaEst->buscarCed(est->getCedula())->setUniversidad(uni);
-		cout << "Ingrese el nuevo codigo de carrera que posee: ";
-		cin >> cod;
-		listaEst->buscarCed(est->getCedula())->setCodigo(cod);
-		cout << "Ingrese el nuevo ultimo nivel cursado: ";
-		cin >> ult;
-		listaEst->buscarCed(est->getCedula())->setUltimo(ult);
-		cout << "Ingrese la opcion que corresponda al nuevo estado del estudiante: " << endl;
-		cout << "1- activo" << endl;
-		cout << "2- suspendido" << endl;
-		cout << "Digite la opcion: ";
-		cin >> estu;
-		if (estu == 1)
-			listaEst->buscarCed(est->getCedula())->setEstado(1);
-		else
-			listaEst->buscarCed(est->getCedula())->setEstado(2);
+		if (listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL && listaMed->buscarCed(ced) == NULL) {
+			listaEst->buscarCed(est->getCedula())->setCedula(ced);
+			cout << "Ingrese el nuevo nombre: ";
+			cin >> nom;
+			listaEst->buscarCed(est->getCedula())->setNombre(nom);
+			cout << "Ingrese el nuevo apellido: ";
+			cin >> ape;
+			listaEst->buscarCed(est->getCedula())->setApellido(ape);
+			cout << "Ingrese el nuevo numero telefonico: ";
+			cin >> num;
+			listaEst->buscarCed(est->getCedula())->setNumeroT(num);
+			cout << "Ingrese la nueva universidad a la que pertenece: ";
+			cin >> uni;
+			listaEst->buscarCed(est->getCedula())->setUniversidad(uni);
+			cout << "Ingrese el nuevo codigo de carrera que posee: ";
+			cin >> cod;
+			listaEst->buscarCed(est->getCedula())->setCodigo(cod);
+			cout << "Ingrese el nuevo ultimo nivel cursado: ";
+			cin >> ult;
+			listaEst->buscarCed(est->getCedula())->setUltimo(ult);
+			cout << "Ingrese la opcion que corresponda al nuevo estado del estudiante: " << endl;
+			cout << "1- activo" << endl;
+			cout << "2- suspendido" << endl;
+			cout << "Digite la opcion: ";
+			cin >> estu;
+			if (estu == 1)
+				listaEst->buscarCed(est->getCedula())->setEstado(1);
+			else
+				listaEst->buscarCed(est->getCedula())->setEstado(2);
+		}
+		else {
+			cout << "Ya existe un estudiante con esta cedula" << endl;
+			system("pause");
+		}
 	}
 	else{
 		cout << "No existe un estudiante con esa cedula" << endl;
@@ -460,7 +495,7 @@ void SALUDUNI::editarEstudianteN() {
 }
 void SALUDUNI::editarEstudianteIN() {
 	cout << "EDICION DE ESTUDIANTES INTERNACIONALES" << endl;
-	EInternacional* est = buscaEstIN();
+	Estudiante* est = buscaEst();
 	system("cls");
 	cout << "EDICION DE ESTUDIANTES INTERNACIONALES" << endl;
 	if (est != NULL) {
@@ -470,34 +505,40 @@ void SALUDUNI::editarEstudianteIN() {
 		Transporte* trans = NULL;
 		cout << "Ingrese el nuevo numero de pasaporte: ";
 		cin >> ced;
-		listaEst->buscarPas(est->getCedula())->setCedula(ced);
-		cout << "Ingrese el nuevo nombre: ";
-		cin >> nom;
-		listaEst->buscarPas(est->getCedula())->setNombre(nom);
-		cout << "Ingrese el nuevo apellido: ";
-		cin >> ape;
-		listaEst->buscarPas(est->getCedula())->setApellido(ape);
-		cout << "Ingrese el nuevo numero telefonico: ";
-		cin >> num;
-		listaEst->buscarPas(est->getCedula())->setNumeroT(num);
-		cout << "Ingrese la nueva universidad a la que pertenece: ";
-		cin >> uni;
-		listaEst->buscarPas(est->getCedula())->setUniversidad(uni);
-		cout << "Ingrese el nuevo codigo de carrera que posee: ";
-		cin >> cod;
-		listaEst->buscarPas(est->getCedula())->setCodigo(cod);
-		cout << "Ingrese el nuevo ultimo nivel cursado: ";
-		cin >> ult;
-		listaEst->buscarPas(est->getCedula())->setUltimo(ult);
-		cout << "Ingrese la opcion que corresponda a la nueva condicion del estudiante: " << endl;
-		cout << "1- exiliado" << endl;
-		cout << "2- refugiado" << endl;
-		cout << "Digite la opcion: ";
-		cin >> estu;
-		if (estu == 1)
-			listaEst->buscarPas(est->getCedula())->setCondicion(1);
-		else
-			listaEst->buscarPas(est->getCedula())->setCondicion(2);
+		if (listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL && listaMed->buscarCed(ced) == NULL) {
+			listaEst->buscarCed(est->getCedula())->setCedula(ced);
+			cout << "Ingrese el nuevo nombre: ";
+			cin >> nom;
+			listaEst->buscarCed(est->getCedula())->setNombre(nom);
+			cout << "Ingrese el nuevo apellido: ";
+			cin >> ape;
+			listaEst->buscarCed(est->getCedula())->setApellido(ape);
+			cout << "Ingrese el nuevo numero telefonico: ";
+			cin >> num;
+			listaEst->buscarCed(est->getCedula())->setNumeroT(num);
+			cout << "Ingrese la nueva universidad a la que pertenece: ";
+			cin >> uni;
+			listaEst->buscarCed(est->getCedula())->setUniversidad(uni);
+			cout << "Ingrese el nuevo codigo de carrera que posee: ";
+			cin >> cod;
+			listaEst->buscarCed(est->getCedula())->setCodigo(cod);
+			cout << "Ingrese el nuevo ultimo nivel cursado: ";
+			cin >> ult;
+			listaEst->buscarCed(est->getCedula())->setUltimo(ult);
+			cout << "Ingrese la opcion que corresponda a la nueva condicion del estudiante: " << endl;
+			cout << "1- exiliado" << endl;
+			cout << "2- refugiado" << endl;
+			cout << "Digite la opcion: ";
+			cin >> estu;
+			if (estu == 1)
+				listaEst->buscarCed(est->getCedula())->setEstado(1);
+			else
+				listaEst->buscarCed(est->getCedula())->setEstado(2);
+		}
+		else {
+			cout << "Ya existe un estudiante con esta cedula" << endl;
+			system("pause");
+		}
 	}
 	else {
 		cout << "No existe un estudiante con ese numero de pasaporte" << endl;
@@ -514,19 +555,25 @@ void SALUDUNI::editarMed() {
 		string ced, nom, ape, num, esp;
 		cout << "Ingrese la nueva cedula: ";
 		cin >> ced;
-		listaMed->buscarCed(med->getCedula())->setCedula(ced);
-		cout << "Ingrese el nuevo nombre: ";
-		cin >> nom;
-		listaMed->buscarCed(med->getCedula())->setNombre(nom);
-		cout << "Ingrese el nuevo apellido: ";
-		cin >> ape;
-		listaMed->buscarCed(med->getCedula())->setApellido(ape);
-		cout << "Ingrese el nuevo numero de telefono: ";
-		cin >> num;
-		listaMed->buscarCed(med->getCedula())->setNumeroT(num);
-		cout << "Ingrese la nueva especialidad: ";
-		cin >> esp;
-		listaMed->buscarCed(med->getCedula())->setEspecialidad(esp);
+		if (listaEst->buscarCed(ced) == NULL && listaProf->buscarCed(ced) == NULL && listaMed->buscarCed(ced) == NULL) {
+			listaMed->buscarCed(med->getCedula())->setCedula(ced);
+			cout << "Ingrese el nuevo nombre: ";
+			cin >> nom;
+			listaMed->buscarCed(med->getCedula())->setNombre(nom);
+			cout << "Ingrese el nuevo apellido: ";
+			cin >> ape;
+			listaMed->buscarCed(med->getCedula())->setApellido(ape);
+			cout << "Ingrese el nuevo numero de telefono: ";
+			cin >> num;
+			listaMed->buscarCed(med->getCedula())->setNumeroT(num);
+			cout << "Ingrese la nueva especialidad: ";
+			cin >> esp;
+			listaMed->buscarCed(med->getCedula())->setEspecialidad(esp);
+		}
+		else {
+			cout << "Ya existe un medico con esta cedula" << endl;
+			system("pause");
+		}
 	}
 	else {
 		cout << "No existe un medico con esa cedula" << endl;
@@ -662,7 +709,7 @@ void SALUDUNI::crearCita() {
 			cout << "Basandose en la base de datos..." << endl;
 			cout << "Ingrese la cedula del profesor con el que se creara la cita: ";
 			cin >> ced;
-			pac = listaProf->buscarCedP(ced);
+			pac = listaProf->buscarCed(ced);
 		}
 		if (op == 2) {
 			system("cls");
@@ -670,7 +717,7 @@ void SALUDUNI::crearCita() {
 			cout << "Basandose en la base de datos..." << endl;
 			cout << "Ingrese la cedula del profesor con el que se creara la cita: ";
 			cin >> ced;
-			pac = listaProf->buscarCedI(ced);
+			pac = listaProf->buscarCed(ced);
 		}
 		if (op == 3) {
 			system("cls");
@@ -686,7 +733,7 @@ void SALUDUNI::crearCita() {
 			cout << "Basandose en la base de datos..." << endl;
 			cout << "Ingrese el numero de pasaporte del estudiante con el que se creara la cita: ";
 			cin >> ced;
-			pac = listaEst->buscarPas(ced);
+			pac = listaEst->buscarCed(ced);
 
 		}
 		if (pac != NULL) {
@@ -932,7 +979,7 @@ void SALUDUNI::busquedaEspecifica() {
 		}
 		if (op2 == 1) {
 			system("cls");
-			PPropiedad* prof = buscaProfP();
+			Profesor* prof = buscaProf();
 			if (prof != NULL) {
 				cout << prof->toString() << endl;
 				system("pause");
@@ -944,7 +991,7 @@ void SALUDUNI::busquedaEspecifica() {
 		}
 		if (op2 == 2) {
 			system("cls");
-			PInterino* prof = buscaProfI();
+			Profesor* prof = buscaProf();
 			if (prof != NULL) {
 				cout << prof->toString() << endl;
 				system("pause");
@@ -956,7 +1003,7 @@ void SALUDUNI::busquedaEspecifica() {
 		}
 		if (op2 == 3) {
 			system("cls");
-			ENacional* est = buscaEstN();
+			Estudiante* est = buscaEst();
 			if (est != NULL) {
 				cout << est->toString() << endl;
 				system("pause");
@@ -968,7 +1015,7 @@ void SALUDUNI::busquedaEspecifica() {
 		}
 		if (op2 == 4) {
 			system("cls");
-			EInternacional* est = buscaEstIN();
+			Estudiante* est = buscaEst();
 			if (est != NULL) {
 				cout << est->toString() << endl;
 				system("pause");
@@ -1035,12 +1082,12 @@ void SALUDUNI::reporteTotal() {
 }
 void SALUDUNI::reporteMasCitas() {
 	cout << "REPORTE PERSONA CON MAS CITAS EN EL HOSPITAL" << endl << endl;
-
+	listaCitas->masCitas();
 	system("pause");
 }
 void SALUDUNI::reporteFecha() {
 	cout << "REPORTE FECHA CON MAS ASISTENCIAS" << endl << endl;
-
+	listaCitas->FechaMas();
 	system("pause");
 }
 void SALUDUNI::reporteTipoMas() {
@@ -1055,7 +1102,7 @@ void SALUDUNI::reporteAmbuOcupadas() {
 }
 void SALUDUNI::reporteInterinosMejorC() {
 	cout << "REPORTE PROFESORES INTERINOS MEJOR CALIFICADOS" << endl << endl;
-	//
+	listaProf->mejoresCali();
 	system("pause");
 }
 void SALUDUNI::reporteEstExiliados() {

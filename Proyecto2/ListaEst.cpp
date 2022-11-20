@@ -16,21 +16,29 @@ void ListaEst::ingresarIN(EInternacional* ptr) {
 	cont++;
 }
 
-ENacional* ListaEst::buscarCed(string ced) {
-	NodoEst* pExt = ppio;
-	while (pExt != NULL) {
-		if (pExt->getEstudianteN()->getCedula() == ced)
-			return pExt->getEstudianteN();
-		pExt = pExt->getSig();
-	}
-	return NULL;
-}
+//ENacional* ListaEst::buscarCed(string ced) {
+//	NodoEst* pExt = ppio;
+//	while (pExt != NULL) {
+//		if (pExt->getEstudianteN()->getCedula() == ced)
+//			return pExt->getEstudianteN();
+//		pExt = pExt->getSig();
+//	}
+//	return NULL;
+//}
 
-EInternacional* ListaEst::buscarPas(string ced) {
+Estudiante* ListaEst::buscarCed(string ced) {
 	NodoEst* pExt = ppio;
+	if (ppio == NULL)
+		return NULL;
 	while (pExt != NULL) {
-		if (pExt->getEstudianteIN()->getCedula() == ced)
-			return pExt->getEstudianteIN();
+		if (pExt->getEstudianteN() != NULL) {
+			if (pExt->getEstudianteN()->getCedula() == ced)
+				return pExt->getEstudianteN();
+		}
+		if (pExt->getEstudianteIN() != NULL) {
+			if (pExt->getEstudianteIN()->getCedula() == ced)
+				return pExt->getEstudianteIN();
+		}
 		pExt = pExt->getSig();
 	}
 	return NULL;
@@ -47,6 +55,11 @@ bool ListaEst::eliminarEstN(string ced) {
 	}
 
 	while (pExt != NULL) {
+		if (pExt->getEstudianteN()->getCedula() == ced) {
+			delete pExt;
+			cont--;
+			return true;
+		}
 		if (pExt->getSig() != NULL) {
 			if (pExt->getSig()->getEstudianteN()->getCedula() == ced) {
 				NodoEst* pExt1 = pExt->getSig();
@@ -72,6 +85,11 @@ bool ListaEst::eliminarEstIN(string ced) {
 	}
 
 	while (pExt != NULL) {
+		if (pExt->getEstudianteIN()->getCedula() == ced) {
+			delete pExt;
+			cont--;
+			return true;
+		}
 		if (pExt->getSig() != NULL) {
 			if (pExt->getSig()->getEstudianteIN()->getCedula() == ced) {
 				NodoEst* pExt1 = pExt->getSig();
@@ -118,7 +136,7 @@ string ListaEst::exiliados() {
 	s << "---------------LISTA ESTUDIANTES---------------" << endl
 		<< "----------------INTERNACIONALES----------------" << endl;
 	while (pExt != NULL) {
-		if (pExt->getEstudianteIN() != NULL && pExt->getEstudianteIN()->getCondicion() == 1)
+		if (pExt->getEstudianteIN() != NULL && pExt->getEstudianteIN()->getEstado() == 1)
 			s << pExt->getEstudianteIN()->toString() << endl;
 		pExt = pExt->getSig();
 	}

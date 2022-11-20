@@ -1,4 +1,18 @@
 #include "Interfaz.h"
+SALUDUNI* HO = new SALUDUNI();
+
+void Interfaz::creaHospital() {
+    string ced, dir, num;
+    cout << "HOSPITAL-UNIVERSITARIO" << endl;
+    cout << "Ingrese la cedula juridica del hospital: ";
+    cin >> ced;
+    cout << "Ingrese la direccion del hospital: ";
+    cin >> dir;
+    cout << "Ingrese el numero telefonico del hospital: ";
+    cin >> num;
+    system("cls");
+    HO = new SALUDUNI(ced, num, dir);
+}
 
 int Interfaz::menuPrincipal() {
     int op;
@@ -107,3 +121,130 @@ int Interfaz::subsubMenuBusquedasReportes() {
     cin >> op;
     return op;
 }
+
+void Interfaz::crearCita() {
+    HO->crearCita();
+}
+void Interfaz::todasCitas() {
+    cout << HO->todasCitas() << endl;
+    system("pause");
+}
+void Interfaz::eliminarCita() {
+    HO->eliminarCita();
+ }
+void Interfaz::historialCitas() {
+    HO->historialCitas();
+ }
+
+void Interfaz::ingresarProfP() {
+    HO->ingresarProfP();
+ }
+void Interfaz::ingresarProfI() {
+    HO->ingresarProfI();
+ }
+void Interfaz::ingresarEstudianteN() {
+    HO->ingresarEstudianteN();
+ }
+void Interfaz::ingresarEstudianteIN() {
+    HO->ingresarEstudianteIN();
+ }
+void Interfaz::editarProfP() {
+    HO->editarProfP();
+ }
+void Interfaz::editarProfI() {
+    HO->editarProfI();
+ }
+void Interfaz::editarEstudianteN() {
+    HO->editarEstudianteN();
+ }
+void Interfaz::editarEstudianteIN() {
+    HO->editarEstudianteIN();
+ }
+void Interfaz::eliminarProfP() {
+    HO->eliminarProfP();
+ }
+void Interfaz::eliminarProfI() {
+    HO->eliminarProfI();
+ }
+void Interfaz::eliminarEstudianteN() {
+    HO->eliminarEstudianteN();
+ }
+void Interfaz::eliminarEstudianteIN() {
+    HO->eliminarEstudianteIN();
+ }
+
+void Interfaz::ingresarMed() {
+    HO->ingresarMed();
+ }
+void Interfaz::ingresarAmbu() {
+    HO->ingresarAmb();
+ }
+void Interfaz::ingresarTax() {
+    HO->ingresarTax();
+ }
+void Interfaz::editarMed() {
+    HO->editarMed();
+ }
+void Interfaz::editarAmbu() {
+    HO->editarAmb();
+ }
+void Interfaz::editarTax() {
+    HO->editarTax();
+ }
+void Interfaz::eliminarMed() {
+    HO->eliminarMed();
+ }
+void Interfaz::eliminarAmbu() {
+    HO->eliminarAmb();
+ }
+void Interfaz::eliminarTax() {
+    HO->eliminarTax();
+ }
+
+void Interfaz::pacientes() {
+    cout << HO->pacientes() << endl;
+    system("pause");
+ }
+void Interfaz::medicos() {
+    cout << HO->medicos() << endl;
+    system("pause");
+ }
+void Interfaz::transporte() {
+    cout << HO->transporte() << endl;
+    system("pause");
+ }
+void Interfaz::busqueda() {
+    HO->busquedaEspecifica();
+ }
+ void Interfaz::todo() {
+     cout << HO->toString() << endl;
+     system("pause");
+ }
+ void Interfaz::total() {
+     HO->reporteTotal();
+ }
+ void Interfaz::masCitas() {
+     HO->reporteMasCitas();
+ }
+ void Interfaz::mayorFecha() {
+     HO->reporteFecha();
+ }
+ void Interfaz::tipoMas() {
+     HO->reporteTipoMas();
+ }
+ void Interfaz::ocupadas() {
+     HO->reporteAmbuOcupadas();
+ }
+ void Interfaz::mejores() {
+     HO->reporteInterinosMejorC();
+ }
+ void Interfaz::exiliados() {
+     HO->reporteEstExiliados();
+ }
+
+ void Interfaz::despedida() {
+     cout << "--------------SALIENDO---------------" << endl;
+     cout << "Gracias por utilizar nuestro programa" << endl;
+     cout << "-------------------------------------" << endl;
+     system("pause");
+ }

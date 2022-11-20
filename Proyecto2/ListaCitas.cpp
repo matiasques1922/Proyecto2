@@ -32,6 +32,11 @@ bool ListaCitas::eliminarCita(string pla) {
 	}
 
 	while (pExt != NULL) {
+		if (pExt->getCita()->getCodigo() == pla) {
+			delete pExt;
+			cont--;
+			return true;
+		}
 		if (pExt->getSig() != NULL) {
 			if (pExt->getSig()->getCita()->getCodigo() == pla) {
 				NodoCit* pExt1 = pExt->getSig();
@@ -53,31 +58,84 @@ string ListaCitas::historialP(string ced) {
 	while (pExt != NULL) {
 		if (pExt->getCita()->getPaciente()->getCedula() == ced) {
 			s << pExt->getCita()->toString() << endl;
-			pExt = pExt->getSig();
 		}
 		else {
 			s << "No existe un paciente con esa cedula que posea citas" << endl;
 		}
+		pExt = pExt->getSig();
 	}
 	return s.str();
 
 }
 
 void ListaCitas::masCitas() {
+	Paciente fe[20];
+	Paciente actual;
+	Paciente FeMayor;
+	int can = 0;
+	int canMomento = 0;
+	int canMayor = 0;
 	NodoCit* pExt = ppio;
-	Fecha* vec[40];
-	while (pExt != NULL) {
 
+	while (pExt != NULL) {
+		fe[can++] = *(pExt->getCita()->getPaciente());
 		pExt = pExt->getSig();
+	}
+	for (int i = 0; i < can; i++) {
+		actual = fe[i];
+		for (int j = 0; j < can; j++) {
+			if (actual.getCedula() == fe[j].getCedula()) {
+				canMomento++;
+			}
+		}
+		if (canMayor < canMomento) {
+			canMayor = canMomento;
+			FeMayor = actual;
+		}
+		canMomento = 0;
+	}
+	if (FeMayor.getCedula() == "") {
+		cout << "No existe un paciente con mas citas" << endl;
+	}
+	else {
+		cout << FeMayor.toString();
+		cout << "Cedula: " << FeMayor.getCedula() << endl;
+		cout << "Nombre: " << FeMayor.getNombre() << endl;
+		cout << "Apellido: " << FeMayor.getApellido() << endl;
 	}
 }
 
 void ListaCitas::FechaMas() {
+	Fecha fe[20];
+	Fecha actual;
+	Fecha FeMayor;
+	int can = 0;
+	int canMomento = 0;
+	int canMayor = 0;
 	NodoCit* pExt = ppio;
+
 	while (pExt != NULL) {
-		
+		fe[can++] = *(pExt->getCita()->getFecha());
 		pExt = pExt->getSig();
 	}
+	for (int i = 0; i < can; i++) {
+		actual = fe[i];
+		for (int j = 0; j < can; j++) {
+			if (actual.getDia() == fe[j].getDia() && actual.getMes() == fe[j].getMes() && actual.getAnio() == fe[j].getAnio()) {
+				canMomento++;
+			}
+		}
+		if (canMayor < canMomento) {
+			canMayor = canMomento;
+			FeMayor = actual;
+		}
+		canMomento = 0;
+	}
+	if (FeMayor.getDia() == 0 && FeMayor.getMes() == 0 && FeMayor.getAnio() == 0) {
+		cout << "No existe una fecha mas atendida" << endl;
+	}
+	else
+	cout << FeMayor.toString() << endl;
 }
 
 void ListaCitas::transMas() {

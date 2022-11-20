@@ -4,6 +4,7 @@ class PInterino: public Profesor{
 private:
 
 public:
+	PInterino();
 	PInterino(string, string, string, string, string, Transporte*, string, int, string);
 	virtual ~PInterino();
 	string getTitulo();
