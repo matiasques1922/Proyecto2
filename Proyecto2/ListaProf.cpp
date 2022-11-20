@@ -137,7 +137,8 @@ string ListaProf::interino() {
 }
 
 void ListaProf::mejoresCali() {
-	PInterino fe[20];
+	PInterino fe[15];
+	PInterino aux;
 	PInterino actual;
 	PInterino FeMayor;
 	PInterino FeMayor2;
@@ -148,23 +149,48 @@ void ListaProf::mejoresCali() {
 	NodoProf* pExt = ppio;
 
 	while (pExt != NULL) {
-		fe[can++] = *(pExt->getProfesorI());
+		if (pExt->getProfesorI() != NULL) {
+			fe[can++] = *(pExt->getProfesorI());
+		}
 		pExt = pExt->getSig();
 	}
+
 	for (int i = 0; i < can; i++) {
-		actual = fe[i];
-		for (int j = 0; j < can; j++) {
-			if (actual.getCedula() == fe[j].getCedula()) {
-				canMomento++;
+		for (int j = i + 1; j < can; j++) {
+			if (fe[i].getCali() < fe[j].getCali()) {
+				aux = fe[i];
+				fe[i] = fe[j];
+				fe[j] = aux;
 			}
 		}
-		if (canMayor < canMomento) {
-			canMayor = canMomento;
-			FeMayor = actual;
-		}
-		canMomento = 0;
 	}
-	cout << FeMayor.toString() << endl;
+	FeMayor = fe[0];
+	FeMayor2 = fe[1];
+	FeMayor3 = fe[2];
+
+	cout << "El mejor calificado es el profesor nombre: " << FeMayor.getNombre() << " .Califacion: " << FeMayor.getCali() << endl;
+	cout << "El segundo es el profesor nombre: " << FeMayor2.getNombre() << " .Califacion: " << FeMayor2.getCali() << endl;
+	cout << "El tercero es el profesor nombre: " << FeMayor3.getNombre() << " .Califacion: " << FeMayor3.getCali() << endl;
+
+	
+	//while (pExt != NULL) {
+	//	fe[can++] = *(pExt->getProfesorI());
+	//	pExt = pExt->getSig();
+	//}
+	//for (int i = 0; i < can; i++) {
+	//	actual = fe[i];
+	//	for (int j = 0; j < can; j++) {
+	//		if (actual.getCedula() == fe[j].getCedula()) {
+	//			canMomento++;
+	//		}
+	//	}
+	//	if (canMayor < canMomento) {
+	//		canMayor = canMomento;
+	//		FeMayor = actual;
+	//	}
+	//	canMomento = 0;
+	//}
+	//cout << FeMayor.toString() << endl;
 }
 
 string ListaProf::toString() {
