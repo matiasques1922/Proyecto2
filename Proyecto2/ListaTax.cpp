@@ -58,8 +58,13 @@ double ListaTax::totalRecaudado() {
 	NodoTax* pExt = ppio;
 	double total = 0;
 	while (pExt != NULL) {
-		total = total + pExt->getTaxi()->getCobro()->getTotal();
-		pExt = pExt->getSig();
+		if (pExt->getTaxi() != NULL) {
+			total = total + pExt->getTaxi()->getCobro()->getTotal();
+			pExt = pExt->getSig();
+		}
+		else {
+			pExt = pExt->getSig();
+		}
 	}
 	return total;
 }

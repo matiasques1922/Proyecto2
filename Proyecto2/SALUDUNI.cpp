@@ -83,6 +83,7 @@ Medico* SALUDUNI::buscaMedico(){
 }
 
 void SALUDUNI::ingresarAmb(){
+	int op = 0;
 	string cod, pla, mar;
 	bool oc = false;
 	double kilo = 0;
@@ -94,6 +95,15 @@ void SALUDUNI::ingresarAmb(){
 		cin >> cod;
 		cout << "Ingrese la marca de la ambulancia: ";
 		cin >> mar;
+		cout << "Ingrese la opcion que corresponda al nuevo estado de la ambulancia: " << endl;
+		cout << "1- Disponible" << endl;
+		cout << "2- Ocupado" << endl;
+		cout << "Digite la opcion: ";
+		cin >> op;
+		if (op == 1)
+			oc = false;
+		else
+			oc = true;
 		listaAmb->ingresar(new Ambulancia(pla, mar, cod, oc, kilo));
 	}
 	else {
@@ -805,18 +815,14 @@ void SALUDUNI::crearCita() {
 						if (op2 == 1) {
 							listaTax->buscarPlaca(pla)->setIdaVuelta(false);
 							listaTax->buscarPlaca(pla)->getCobro()->realizaCobro(dis, numP);
-							cout << "El cobro total del viaje sera: " << listaTax->buscarPlaca(pla)->getCobro()->getTotal() << " colones" << endl;
-							cout << "Y el viaje sera solo de ida o vuelta" << endl;
-							system("pause");
 						}
 						if (op2 == 2) {
 							listaTax->buscarPlaca(pla)->setIdaVuelta(true);
 							listaTax->buscarPlaca(pla)->getCobro()->realizaCobro2(dis, numP);
-							cout << "El cobro total del viaje sera: " << listaTax->buscarPlaca(pla)->getCobro()->getTotal() << " colones" << endl;
-							cout << "Y el viaje sera de ida y vuelta" << endl;
-							system("pause");
 						}
 						system("cls");
+						cout << "El cobro total del viaje sera: " << listaTax->buscarPlaca(pla)->getCobro()->getTotal() << " colones" << endl;
+						cout << "Y el viaje sera de ida y vuelta" << endl;
 						trans = listaTax->buscarPlaca(pla);
 						pac->setTransporte(trans);
 						cita = new Cita(cod, pac, med, fec, hor);
@@ -841,8 +847,6 @@ void SALUDUNI::crearCita() {
 						cout << "Ingrese la distancia de la ruta a recorrer por la ambulancia (solo ida o vuelta): ";
 						cin >> dis;
 						listaAmb->buscarPlaca(pla)->setKM(dis);
-						listaAmb->buscarPlaca(pla)->setOcupado(true);
-						cout << "El estado de la ambulancia ahora es: Ocupado" << endl;
 						system("pause");
 					
 						while (op4 != 1 && op4 != 2) {
