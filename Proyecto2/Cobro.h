@@ -7,10 +7,12 @@ class Cobro
 {
 private:
 	double total;
+	double cobro;
 public:
 	Cobro();
 	virtual~Cobro();
 	double getTotal();
+	double getCobromini();
 	void setTotal(double);
 	double realizaCobro(double, int);
 	double realizaCobro2(double, int);

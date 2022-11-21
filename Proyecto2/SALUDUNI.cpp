@@ -801,7 +801,7 @@ void SALUDUNI::crearCita() {
 						cout << "Ingrese el numero de pasajeros que tendra el taxi: ";
 						cin >> numP;
 						listaTax->buscarPlaca(pla)->setNumPacientes(numP);
-						cout << "Ingrese la distancia de la ruta a recorrer por el taxi (solo ida o vuelta): ";
+						cout << "Ingrese la distancia(KM) de la ruta a recorrer por el taxi (solo ida o vuelta): ";
 						cin >> dis;
 						listaTax->buscarPlaca(pla)->setDistancia(dis);
 						while (op2 != 1 && op2 != 2) {
@@ -815,14 +815,18 @@ void SALUDUNI::crearCita() {
 						if (op2 == 1) {
 							listaTax->buscarPlaca(pla)->setIdaVuelta(false);
 							listaTax->buscarPlaca(pla)->getCobro()->realizaCobro(dis, numP);
+							cout << "El cobro total del viaje sera: " << listaTax->buscarPlaca(pla)->getCobro()->getCobromini() << " colones" << endl;
+							cout << "Y el viaje sera de ida y vuelta" << endl;
+							system("pause");
 						}
 						if (op2 == 2) {
 							listaTax->buscarPlaca(pla)->setIdaVuelta(true);
 							listaTax->buscarPlaca(pla)->getCobro()->realizaCobro2(dis, numP);
+							cout << "El cobro total del viaje sera: " << listaTax->buscarPlaca(pla)->getCobro()->getCobromini() << " colones" << endl;
+							cout << "Y el viaje sera de ida y vuelta" << endl;
+							system("pause");
 						}
 						system("cls");
-						cout << "El cobro total del viaje sera: " << listaTax->buscarPlaca(pla)->getCobro()->getTotal() << " colones" << endl;
-						cout << "Y el viaje sera de ida y vuelta" << endl;
 						trans = listaTax->buscarPlaca(pla);
 						pac->setTransporte(trans);
 						cita = new Cita(cod, pac, med, fec, hor);
@@ -844,7 +848,7 @@ void SALUDUNI::crearCita() {
 					cin >> pla;
 					trans = listaAmb->buscarPlaca(pla);
 					if (trans != NULL && listaAmb->buscarPlaca(pla)->getOcupado() == false) {
-						cout << "Ingrese la distancia de la ruta a recorrer por la ambulancia (solo ida o vuelta): ";
+						cout << "Ingrese la distancia(KM) de la ruta a recorrer por la ambulancia (solo ida o vuelta): ";
 						cin >> dis;
 						listaAmb->buscarPlaca(pla)->setKM(dis);
 						system("pause");

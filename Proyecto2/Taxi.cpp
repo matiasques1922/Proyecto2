@@ -28,6 +28,6 @@ string Taxi::toString() {
 		<< "Placa: " << placa << endl
 		<< "Marca: " << marca << endl
 		<< "Numero de Pacientes: " << numPacientes << endl
-		<< "Total generado: " << total() << " colones" << endl;
+		<< "Total generado: " << cobroPtr->getTotal() << " colones" << endl;
 	return s.str();
 }

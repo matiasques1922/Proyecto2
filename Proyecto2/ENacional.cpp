@@ -10,7 +10,8 @@ ENacional:: ~ENacional(){}
 string ENacional::toString(){
 	stringstream s;
 	s << Estudiante::toString() << endl
-		<< "Tipo: Estudiante Nacional" << endl;
+		<< "Tipo: Estudiante Nacional" << endl
+		<< "Cedula: " << cedula << endl;
 	if (estado == 1)
 		s << "Estado: activo" << endl;
 	else
